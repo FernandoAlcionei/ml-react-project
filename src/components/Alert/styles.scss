@@ -1,0 +1,21 @@
+@import "../ColorsAji/styles.scss";
+
+.alert-component {
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    padding: 15px 20px;
+    color: $white;
+
+    &.sucesso {
+        background-color: $green;
+    }
+
+    &.erro{
+        background-color: $red;
+    }
+}

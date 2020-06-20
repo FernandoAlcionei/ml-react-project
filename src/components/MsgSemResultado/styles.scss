@@ -1,0 +1,9 @@
+@import "../ColorsAji/styles.scss";
+
+.msg-sem-resultado-component {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $light-grey;
+}

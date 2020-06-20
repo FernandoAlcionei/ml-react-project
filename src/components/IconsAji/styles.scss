@@ -1,0 +1,99 @@
+@import "../ColorsAji/styles.scss";
+
+@mixin add-icon($icon) {
+    mask-image: url($icon);
+    -webkit-mask-image: url($icon);
+}
+
+.icon-svg {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    mask-position: center center;
+    -webkit-mask-position: center center;
+    mask-image: center center;
+    -webkit-mask-image: center center;
+    background-color: $black;
+  
+    &.icon-person {
+        @include add-icon("../../images/icons/person.svg")
+    }
+  
+    &.icon-search {
+        @include add-icon("../../images/icons/search.svg")
+    }
+  
+    &.icon-add {
+        @include add-icon("../../images/icons/add.svg")
+    }
+  
+    &.chevron-right {
+        @include add-icon("../../images/icons/chevron-right.svg")
+    }
+  
+    &.chevron-down {
+        -webkit-transform:rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+
+        @include add-icon("../../images/icons/chevron-right.svg")
+    }
+
+    &.chevron-up {
+        -webkit-transform:rotate(270deg);
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        transform: rotate(270deg);
+
+        @include add-icon("../../images/icons/chevron-right.svg")
+    }
+
+    &.chevron-left {
+        @include add-icon("../../images/icons/chevron-left.svg")
+    }
+  
+    &.chevrons-left {
+        @include add-icon("../../images/icons/chevrons-left.svg")
+    }
+  
+    &.chevrons-right {
+        @include add-icon("../../images/icons/chevrons-right.svg")
+    }
+  
+    &.shipping {
+        @include add-icon("../../images/icons/shipping.svg")
+    }
+  
+    &.trash {
+        @include add-icon("../../images/icons/trash.svg")
+    }
+  
+    &.edit {
+        @include add-icon("../../images/icons/edit.svg")
+    }
+
+    &.profile {
+        @include add-icon("../../images/icons/profile.svg")
+    }
+
+    &.close {
+        @include add-icon("../../images/icons/close.svg")
+    }
+
+    &.tyre {
+        @include add-icon("../../images/icons/tyres.svg")
+    }
+
+    &.loading {
+        @include add-icon("../../images/icons/loading.svg")
+    }
+
+    &.location {
+        @include add-icon("../../images/icons/location.svg")
+    }
+}

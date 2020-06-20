@@ -1,0 +1,14 @@
+@import '../../../../../components/ColorsAji/styles.scss';
+
+.sidebar-login {
+    width: $width-sidebar;
+    height: $height-sidebar;
+
+    .titulo {
+        margin-top: 80px;
+    }
+
+    .inputs-login {
+        margin: 60px 0px;
+    }
+}
