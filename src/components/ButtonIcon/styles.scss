@@ -4,14 +4,15 @@
     background: none;
     border: none;
     cursor: pointer;
+    background-color: $light-grey;
+    padding: 0 10px;
 
-    .icon-svg {
-        background-color: $primary;
-        width: 15px;
-        height: 15px;
-    }
-    
     &:hover {
         opacity: 0.8;
+    }
+
+    .img-icon {
+        width: 18px;
+        height: 18px;
     }
 }

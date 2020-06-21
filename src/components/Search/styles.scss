@@ -1,7 +1,12 @@
-@import "../ColorsAji/styles.scss";
+@import '../ColorsAji/styles.scss';
 
 .search-component {
-    .msg-de-erro {
-        display: none;
+    flex-grow: 1;
+    border-radius: 4px;
+    overflow: hidden;
+
+    .search-form {
+        display: flex;
+        flex-direction: row;
     }
 }

@@ -2,17 +2,19 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './styles.scss';
 import Loader from '../components/Loader';
-import AlertaContainer from '../containers/alerta/containers/AlertaContainer';
 import { Colors } from '../components/ColorsAji/index';
 
-const LoginContainer = lazy(() => import('../containers/login/containers/LoginContainer'));
+import AlertaContainer from '../containers/alerta/containers/AlertaContainer';
+import HeaderContainer from '../containers/header/containers/HeaderContainer';
+
+const ProdutosContainer = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
 
 const routes = [
   {
-    key: 'login',
+    key: 'produtos',
     path: '/',
     exact: true,
-    component: LoginContainer,
+    component: ProdutosContainer,
   }, {
     key: 'not-found',
     path: '*',
@@ -23,21 +25,25 @@ const routes = [
 
 export const Routes = () => (
   <BrowserRouter>
-    <div className="wrap-routes">
+    <div className="routes">
       <AlertaContainer />
 
-      <Suspense fallback={<Loader show background={Colors.whiteTransparent} color={Colors.grey} />}>
-        <Switch>
-          {routes.map((route) => (
-            <Route
-              key={route.key}
-              path={route.path}
-              exact={route.exact}
-              component={route.component}
-            />
-          ))}
-        </Switch>
-      </Suspense>
+      <HeaderContainer />
+
+      <div className="wrap-routes">
+        <Suspense fallback={<Loader show background={Colors.whiteTransparent} color={Colors.grey} />}>
+          <Switch>
+            {routes.map((route) => (
+              <Route
+                key={route.key}
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />
+            ))}
+          </Switch>
+        </Suspense>
+      </div>
     </div>
   </BrowserRouter>
 );

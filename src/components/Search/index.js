@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './styles.scss';
 import { PropTypes } from 'prop-types';
 import Input from '../Input';
+import ButtonIcon from '../ButtonIcon/index';
+import images from '../../config/images';
+
+const { icons } = images;
 
 class Search extends Component {
   constructor(props) {
@@ -20,25 +24,20 @@ class Search extends Component {
   }
 
   render() {
-    const { className, onClick, placeholder } = this.props;
+    const { onClick, placeholder } = this.props;
     const { busca } = this.state;
 
     return (
-      <div className={className}>
-        <div className="search-component">
-          <form onSubmit={this.onSubmit.bind(this)}>
-            <Input
-              value={busca}
-              onChange={(value) => this.setState({ busca: value })}
-              placeholder={placeholder}
-              showBtn
-              onClickBtn={() => onClick(busca)}
-              btnStyle="btn-primary"
-              btnLeftIcon="icon-search"
-              btnType="submit"
-            />
-          </form>
-        </div>
+      <div className="search-component">
+        <form onSubmit={this.onSubmit.bind(this)} className="search-form">
+          <Input
+            value={busca}
+            onChange={(value) => this.setState({ busca: value })}
+            placeholder={placeholder}
+          />
+
+          <ButtonIcon onClick={() => onClick(busca)} icon="icon-search" imgIcon={icons.search} />
+        </form>
       </div>
     );
   }
@@ -46,13 +45,9 @@ class Search extends Component {
 
 Search.propTypes = {
   onClick: PropTypes.func.isRequired,
-  className: PropTypes.string,
   placeholder: PropTypes.string,
 };
 
-Search.defaultProps = {
-  className: '',
-  placeholder: '',
-};
+Search.defaultProps = { placeholder: '' };
 
 export default Search;

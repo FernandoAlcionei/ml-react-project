@@ -3,7 +3,7 @@ import ApiConstants from './ApiConstants';
 
 const { LOGIN } = ApiConstants;
 
-const apiurl = 'http://localhost:5000';
+const apiurl = 'https://api.mercadolibre.com';
 
 const create = (baseURL = apiurl) => {
   const api = apisauce.create({
@@ -12,14 +12,11 @@ const create = (baseURL = apiurl) => {
     timeout: 20000,
   });
 
-  const login = (email, senha) => (
-    api.post(LOGIN, {
-      email,
-      senha,
-    })
+  const getProdutos = (busca) => (
+    api.get('/sites/MLA/search', { q: busca || 'query' })
   );
 
-  return { login };
+  return { getProdutos };
 };
 
 export default { create };

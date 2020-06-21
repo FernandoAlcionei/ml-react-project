@@ -1,6 +1,13 @@
-.wrap-routes {
+@import '../components/ColorsAji/styles.scss';
+
+.routes {
     position: relative;
     min-height: 100%;
     width: 100%;
-    display: flex;
+    background-color: $background-page;
+
+    .wrap-routes {
+        margin: 0px 85px;
+        background-color: $white;
+    }
 }

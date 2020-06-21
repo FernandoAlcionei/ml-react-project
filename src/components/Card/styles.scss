@@ -1,0 +1,36 @@
+@import '../ColorsAji/styles.scss';
+
+.card-component {
+    display: flex;
+    flex-direction: row;
+    padding: 16px 0;
+
+    .img-card {
+        width: 180px;
+        height: 180px;
+        border-radius: 4px;
+        padding: 0 16px;
+    }
+
+    .info-produto {
+        flex: 1;
+        padding-top: 16px;
+        color: $dark-grey;
+
+        .price {
+            font-size: 24px;
+            margin-bottom: 32px;
+        }
+
+        .titulo {
+            font-size: 18px;
+        }
+           
+        .endereco {
+            font-size: 12px;
+            display: block;
+            padding-left: 80%;
+            color: $medium-grey;
+        }
+    }
+}

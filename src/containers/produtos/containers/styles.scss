@@ -1,0 +1,12 @@
+@import '../../../components/ColorsAji/styles.scss';
+
+.produtos-view {
+    display: flex;
+    flex: 1;
+
+    .wrap-produtos {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+}

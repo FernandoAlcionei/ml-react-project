@@ -1,7 +1,7 @@
-import * as loginReducer from '../containers/login/reducers';
+import * as produtosReducer from '../containers/produtos/reducers';
 import * as alertaReducer from '../containers/alerta/reducers';
 
 export default ({
-  ...loginReducer,
+  ...produtosReducer,
   ...alertaReducer,
 });

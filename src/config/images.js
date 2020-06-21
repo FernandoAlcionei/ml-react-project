@@ -1,13 +1,10 @@
-const imgDeFundo = require('../images/login-view/img-de-fundo.jpg');
-
 const logo = require('../images/logo.png');
 
-const person = require('../images/icons/person.svg');
+const search = require('../images/icons/search.png');
 
 const images = {
-  login: { imgDeFundo },
   logo,
-  icons: { person },
+  icons: { search },
 };
 
 export default images;

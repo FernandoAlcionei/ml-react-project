@@ -1,6 +1,4 @@
 @import './components/ColorsAji/styles.scss';
-@import './components/IconsAji/styles';
-@import './fonts/avenir/avenir.scss';
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -8,10 +6,10 @@
 }
 
 h1, h2, h3, h4, h5, h6, span, div, label, input, select, a, button {
-  font-family: 'Avenir Next Rounded Std';
+  font-family: 'Proxima Nova', -apple-system, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $title;
-  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0;
 }

@@ -1,78 +1,19 @@
 @import '../ColorsAji/styles.scss';
 
-@mixin style-input($color, $border, $placeholder, $input-color: $black) {
-    .label-input {
-        color: $color;
-    }
-
-    .wrap-input-field {
-        .input-field {
-            border-color: $border;
-            color: $input-color;
-            
-            &::placeholder {
-                color: $placeholder;
-            }
-        }
-    }
-}
-
 .input-component {
+    flex-grow: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    &.input-white {
-        @include style-input($white, $white, $white-grey)
-    }
-
-    &.input-grey {
-        @include style-input($form-grey-color, $form-grey-border, $form-grey-color, $form-grey-color)
-    }
-
-    .label-input {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 14px;
-        text-transform: uppercase;
-        padding-bottom: 5px;
-    }
-
-    .wrap-input-field {
+    .input-field {
+        border: none;
+        font-size: 18px;
         flex-grow: 1;
-        display: flex;
-        flex-direction: row;
-
-        .input-field {
-            border-radius: 5px;
-            border: solid 1px;
-            font-size: 14px;
-            flex-grow: 1;
-            padding: 8px 10px;
-            
-            &::placeholder {
-                color: $white-grey;
-            }
+        padding: 8px 10px;
+        color: $input-color;
+        
+        &::placeholder {
+            color: $input-placeholder;
         }
-    }
-
-    &.input-invalid {
-        .label-input {
-            color: $form-invalid;
-        }
-
-        .wrap-input-field {
-            .input-field {
-                border-color: $form-invalid;
-            }
-        }
-    }
-
-    .msg-de-erro {
-        margin-top: 4px;
-        margin-bottom: 5px;
-        min-height: 15px;
-        color: $form-invalid;
-        font-size: 12px;
     }
 }

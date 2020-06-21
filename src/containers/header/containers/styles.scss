@@ -1,0 +1,12 @@
+@import '../../../components/ColorsAji/styles.scss';
+
+.header-view {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 85px;
+    background-color: $background-header;
+
+    .logo {
+        padding-right: 22px;
+    }
+}

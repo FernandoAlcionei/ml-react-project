@@ -11,15 +11,15 @@ class ButtonIcon extends Component {
   }
 
   render() {
-    const { icon, onClick, color, className } = this.props;
+    const { imgIcon, onClick } = this.props;
 
     return (
       <button
         type="button"
-        className={getClasses(['btn-icon-component', className])}
+        className="btn-icon-component"
         onClick={onClick}
       >
-        <i className={getClasses(['icon-svg', icon])} style={{ backgroundColor: color }} />
+        <img src={imgIcon} className="img-icon" alt="Carregando..." />
       </button>
     );
   }
@@ -27,14 +27,9 @@ class ButtonIcon extends Component {
 
 ButtonIcon.propTypes = {
   onClick: PropTypes.func.isRequired,
-  icon: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  className: PropTypes.string,
+  imgIcon: PropTypes.string.isRequired,
 };
 
-ButtonIcon.defaultProps = {
-  color: '',
-  className: '',
-};
+ButtonIcon.defaultProps = { };
 
 export default ButtonIcon;
