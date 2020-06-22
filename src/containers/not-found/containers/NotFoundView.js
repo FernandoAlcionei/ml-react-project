@@ -1,25 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles.scss';
 
-class NotFoundView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const NotFoundView = () => (
+  <div className="not-found-view">
+    <span className="status">
+      404
+    </span>
 
-  render() {
-    return (
-      <div className="not-found-view">
-        <span className="status">
-          404
-        </span>
-
-        <span className="message">
-          Página no encontrada.
-        </span>
-      </div>
-    );
-  }
-}
+    <span className="message">
+      Página no encontrada.
+    </span>
+  </div>
+);
 
 export default NotFoundView;

@@ -1,39 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-class Breadcrumb extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  renderIcon(index) {
-    const { categories } = this.props;
-
+const Breadcrumb = ({ categories }) => {
+  const renderIcon = (index) => {
     if (index < (categories.length - 1)) {
       return <i className="icon-svg chevron-right" />;
     }
 
     return null;
-  }
+  };
 
-  renderCategory = (category, index) => (
+  const renderCategory = (category, index) => (
     <span key={category.id} className="label">
-      { category.name } { this.renderIcon(index) }
+      { category.name } { renderIcon(index) }
     </span>
-  )
+  );
 
-  render() {
-    const { categories } = this.props;
-
-    return (
-      <div className="breadcrumb-component">
-        { categories.map((category, index) => this.renderCategory(category, index))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="breadcrumb-component">
+      { categories.map((category, index) => renderCategory(category, index))}
+    </div>
+  );
+};
 
 Breadcrumb.propTypes = { categories: PropTypes.array.isRequired };
 

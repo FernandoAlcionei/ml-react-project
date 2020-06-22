@@ -1,44 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { getClasses } from '../../lib/utils';
 import './styles.scss';
 
-class ButtonIcon extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const ButtonIcon = ({ onClick, imageIcon, icon, color, size }) => {
+  const getIconStyle = () => ({ width: size, height: size, backgroundColor: color });
 
-  getIconStyle() {
-    const { color, size } = this.props;
-
-    return ({ width: size, height: size, backgroundColor: color });
-  }
-
-  renderIcon() {
-    const { imageIcon, icon } = this.props;
-
+  const renderIcon = () => {
     if (imageIcon) {
       return (
-        <img src={imageIcon} className="img-icon" alt="Cargando..." style={this.getIconStyle()} />
+        <img src={imageIcon} className="img-icon" alt="Cargando..." style={getIconStyle()} />
       );
     }
 
     return (
-      <i className={getClasses(['icon-svg', icon])} style={this.getIconStyle()} />
+      <i className={getClasses(['icon-svg', icon])} style={getIconStyle()} />
     );
-  }
+  };
 
-  render() {
-    const { onClick } = this.props;
-
-    return (
-      <button type="button" className="btn-icon-component" onClick={onClick}>
-        { this.renderIcon() }
-      </button>
-    );
-  }
-}
+  return (
+    <button type="button" className="btn-icon-component" onClick={onClick}>
+      { renderIcon() }
+    </button>
+  );
+};
 
 ButtonIcon.propTypes = {
   onClick: PropTypes.func.isRequired,

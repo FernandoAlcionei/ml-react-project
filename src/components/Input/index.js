@@ -1,36 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  onChangeValue(e) {
-    const { onChange } = this.props;
-    onChange(e.target.value);
-  }
-
-  render() {
-    const { value, type, placeholder, required, disabled } = this.props;
-
-    return (
-      <div className="input-component">
-        <input
-          type={type}
-          value={value}
-          onChange={(event) => this.onChangeValue(event)}
-          className="input-field"
-          placeholder={placeholder}
-          required={required}
-          disabled={disabled}
-        />
-      </div>
-    );
-  }
-}
+const Input = ({ onChange, value, type, placeholder, required, disabled }) => (
+  <div className="input-component">
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="input-field"
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+    />
+  </div>
+);
 
 Input.propTypes = {
   value: PropTypes.oneOfType([
