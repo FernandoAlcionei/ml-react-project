@@ -18,16 +18,16 @@ export function addProduct(product) {
   };
 }
 
-export function sagaProductDetails(id) {
+export function sagaProductDetails(id, t) {
   return {
     type: types.SAGA_PRODUCT_DETAILS,
-    payload: { id },
+    payload: { id, t },
   };
 }
 
-export function sagaBuyProduct(id) {
+export function sagaBuyProduct(id, t) {
   return {
     type: types.SAGA_BUY_PRODUCT,
-    payload: { id },
+    payload: { id, t },
   };
 }

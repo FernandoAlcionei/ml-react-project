@@ -45,10 +45,10 @@ class ProductListView extends Component {
   }
 
   getProducts() {
-    const { getProductList } = this.props;
+    const { getProductList, t } = this.props;
     const search = this.getSearchValue();
 
-    getProductList(search);
+    getProductList(search, t);
   }
 
   renderCards() {

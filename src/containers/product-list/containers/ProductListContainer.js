@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   clearReducer: () => dispatch(clearReducer()),
-  getProductList: (search) => dispatch(sagaProductList(search)),
+  getProductList: (search, t) => dispatch(sagaProductList(search, t)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer);

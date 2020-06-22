@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import './styles.scss';
 import Loader from '../../../components/Loader';
 import { getParamUrl } from '../../../lib/utils';
@@ -12,14 +13,14 @@ class ProductDetailsView extends Component {
   }
 
   componentDidMount() {
-    const { getProductDetails } = this.props;
+    const { getProductDetails, t } = this.props;
     const { location, match: { params: { id } } } = this.props;
 
     window.scrollTo(0, 0);
 
     document.title = getParamUrl('title', location);
 
-    getProductDetails(id);
+    getProductDetails(id, t);
   }
 
   componentWillUnmount() {
@@ -28,9 +29,9 @@ class ProductDetailsView extends Component {
   }
 
   buy() {
-    const { product: { id }, buyProduct } = this.props;
+    const { t, product: { id }, buyProduct } = this.props;
 
-    buyProduct(id);
+    buyProduct(id, t);
   }
 
   renderProduct() {
@@ -59,6 +60,7 @@ class ProductDetailsView extends Component {
 }
 
 ProductDetailsView.propTypes = {
+  t: PropTypes.func.isRequired,
   clearReducer: PropTypes.func.isRequired,
   getProductDetails: PropTypes.func.isRequired,
   buyProduct: PropTypes.func.isRequired,
@@ -68,4 +70,4 @@ ProductDetailsView.propTypes = {
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }).isRequired }).isRequired,
 };
 
-export default ProductDetailsView;
+export default withTranslation()(ProductDetailsView);

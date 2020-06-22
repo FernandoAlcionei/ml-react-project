@@ -4,6 +4,11 @@ import { PropTypes } from 'prop-types';
 import ButtonIcon from '../ButtonIcon';
 import { getClasses } from '../../lib/utils';
 
+export const alertTypes = {
+  error: 'error',
+  success: 'success',
+};
+
 const Alert = ({ alert, alert: { id, timeout }, remove }) => {
   setTimeout(() => remove(id), timeout);
 

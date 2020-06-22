@@ -18,9 +18,9 @@ export function addProducts(products) {
   };
 }
 
-export function sagaProductList(search) {
+export function sagaProductList(search, t) {
   return {
     type: types.SAGA_PRODUCT_LIST,
-    payload: { search },
+    payload: { search, t },
   };
 }

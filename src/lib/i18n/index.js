@@ -14,6 +14,8 @@ const resources = {
       'Página no encontrada': 'Página no encontrada.',
       vendidos: 'vendidos',
       'Descripción del produto': 'Descripción del produto',
+      'Pago recibido con éxito': 'Pago recibido con éxito!',
+      'Servicio temporalmente no disponible': 'Servicio temporalmente no disponible.',
     },
   },
 };
