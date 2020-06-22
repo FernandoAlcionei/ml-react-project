@@ -17,6 +17,7 @@ class ProdutosView extends Component {
   renderCard = (produto) => (
     <Card
       key={produto.id}
+      id={produto.id}
       titulo={produto.title}
       descricao="Completo Unico!"
       imagem={produto.thumbnail}

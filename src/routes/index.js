@@ -8,6 +8,7 @@ import AlertaContainer from '../containers/alerta/containers/AlertaContainer';
 import HeaderContainer from '../containers/header/containers/HeaderContainer';
 
 const ProdutosContainer = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
+const ProdutoContainer = lazy(() => import('../containers/produto/containers/ProdutoContainer'));
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: '/',
     exact: true,
     component: ProdutosContainer,
+  }, {
+    key: 'produto',
+    path: '/produto/:id',
+    exact: true,
+    component: ProdutoContainer,
   }, {
     key: 'not-found',
     path: '*',

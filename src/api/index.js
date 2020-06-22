@@ -16,7 +16,19 @@ const create = (baseURL = apiurl) => {
     api.get('/sites/MLA/search', { q: busca || 'query' })
   );
 
-  return { getProdutos };
+  const getProduto = (id) => (
+    api.get(`/items/${id}`)
+  );
+
+  const getDescricaoProduto = (id) => (
+    api.get(`/items/${id}/descriptions`)
+  );
+
+  return {
+    getProdutos,
+    getProduto,
+    getDescricaoProduto,
+  };
 };
 
 export default { create };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 import Search from '../../../components/Search';
 import images from '../../../config/images';
@@ -21,7 +22,9 @@ class HeaderView extends Component {
   render() {
     return (
       <div className="header-view">
-        <img src={logo} className="logo" alt="Mercado Livre" />
+        <Link to="/">
+          <img src={logo} className="logo" alt="Mercado Livre" />
+        </Link>
 
         <Search onClick={(busca) => this.getLista(busca)} placeholder="Buscar..." />
       </div>
