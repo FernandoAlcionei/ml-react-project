@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './styles.scss';
 import { PropTypes } from 'prop-types';
 import ButtonIcon from '../ButtonIcon';
-import { getClasses } from '../../utils/index';
+import { getClasses } from '../../lib/utils';
 
 class Alert extends Component {
   constructor(props) {

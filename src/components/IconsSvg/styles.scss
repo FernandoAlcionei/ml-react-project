@@ -18,14 +18,14 @@
     background-color: $black;
   
     &.loading {
-        @include add-icon("../../images/icons/loading.svg")
+        @include add-icon("../../images/icons-svg/loading.svg")
     }
 
     &.chevron-right {
-        @include add-icon("../../images/icons/chevron-right.svg")
+        @include add-icon("../../images/icons-svg/chevron-right.svg")
     }
 
     &.close {
-        @include add-icon("../../images/icons/close.svg")
+        @include add-icon("../../images/icons-svg/close.svg")
     }
 }

@@ -4,24 +4,24 @@ import './styles.scss';
 import Loader from '../components/Loader';
 import { Colors } from '../components/ColorsAji/index';
 
-import AlertaContainer from '../containers/alerta/containers/AlertaContainer';
+import AlertContainer from '../containers/alerta/containers/AlertaContainer';
 import HeaderContainer from '../containers/header/containers/HeaderContainer';
 
-const ProdutosContainer = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
-const ProdutoContainer = lazy(() => import('../containers/produto/containers/ProdutoContainer'));
+const ProductList = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
+const ProductDetails = lazy(() => import('../containers/produto/containers/ProdutoContainer'));
 const NotFoundContainer = lazy(() => import('../containers/not-found/containers/NotFoundContainer'));
 
 const routes = [
   {
-    key: 'produtos',
+    key: 'products-list',
     path: '/',
     exact: true,
-    component: ProdutosContainer,
+    component: ProductList,
   }, {
-    key: 'produto',
-    path: '/produto/:id',
+    key: 'product-details',
+    path: '/product-details/:id',
     exact: true,
-    component: ProdutoContainer,
+    component: ProductDetails,
   }, {
     key: 'not-found',
     path: '*',
@@ -33,7 +33,7 @@ const routes = [
 export const Routes = () => (
   <BrowserRouter>
     <div className="routes">
-      <AlertaContainer />
+      <AlertContainer />
 
       <Suspense fallback={<Loader show background={Colors.whiteTransparent} color={Colors.grey} />}>
         <Route key="header" component={HeaderContainer} />

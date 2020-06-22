@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { getClasses } from '../../utils/index';
+import { getClasses } from '../../lib/utils';
 
 class Button extends Component {
   constructor(props) {

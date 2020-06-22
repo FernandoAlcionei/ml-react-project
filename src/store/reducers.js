@@ -1,9 +1,9 @@
-import * as produtosReducer from '../containers/produtos/reducers';
-import * as produtoReducer from '../containers/produto/reducers';
+import * as productListReducer from '../containers/produtos/reducers';
+import * as productDetailsReducer from '../containers/produto/reducers';
 import * as alertReducer from '../containers/alerta/reducers';
 
 export default ({
-  ...produtosReducer,
-  ...produtoReducer,
+  ...productListReducer,
+  ...productDetailsReducer,
   ...alertReducer,
 });

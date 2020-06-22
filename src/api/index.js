@@ -10,7 +10,7 @@ const create = (baseURL = uri) => {
     timeout: 20000,
   });
 
-  const getProductsList = (text) => (
+  const getProductList = (text) => (
     api.get(search, { q: text || 'query' })
   );
 
@@ -23,7 +23,7 @@ const create = (baseURL = uri) => {
   );
 
   return {
-    getProductsList,
+    getProductList,
     getProductDetails,
     getProductDescriptions,
   };
