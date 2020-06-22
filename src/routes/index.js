@@ -34,10 +34,10 @@ export const Routes = () => (
     <div className="routes">
       <AlertaContainer />
 
-      <HeaderContainer />
+      <Suspense fallback={<Loader show background={Colors.whiteTransparent} color={Colors.grey} />}>
+        <Route key="header" component={HeaderContainer} />
 
-      <div className="wrap-routes">
-        <Suspense fallback={<Loader show background={Colors.whiteTransparent} color={Colors.grey} />}>
+        <div className="wrap-routes">
           <Switch>
             {routes.map((route) => (
               <Route
@@ -48,8 +48,8 @@ export const Routes = () => (
               />
             ))}
           </Switch>
-        </Suspense>
-      </div>
+        </div>
+      </Suspense>
     </div>
   </BrowserRouter>
 );

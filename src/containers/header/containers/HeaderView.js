@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+
 import './styles.scss';
 import Search from '../../../components/Search';
 import images from '../../../config/images';
@@ -13,10 +14,14 @@ class HeaderView extends Component {
     this.state = {};
   }
 
-  getLista(busca = '') {
-    const { getListaProdutos } = this.props;
+  getLista = (busca = '') => {
+    const { history } = this.props;
 
-    getListaProdutos(busca);
+    if (busca) {
+      history.push(`/?busca=${busca}`);
+    } else {
+      history.push('/');
+    }
   }
 
   render() {
@@ -32,6 +37,6 @@ class HeaderView extends Component {
   }
 }
 
-HeaderView.propTypes = { getListaProdutos: PropTypes.func.isRequired };
+HeaderView.propTypes = { history: PropTypes.object.isRequired };
 
 export default HeaderView;

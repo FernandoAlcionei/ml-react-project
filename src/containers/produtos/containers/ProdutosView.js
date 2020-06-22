@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
 import Card from '../../../components/Card/index';
+import { getParamUrl } from '../../../lib/utils';
 
 class ProdutosView extends Component {
   constructor(props) {
@@ -9,9 +10,36 @@ class ProdutosView extends Component {
     this.state = {};
   }
 
+  getBusca() {
+    const { location } = this.props;
+    return getParamUrl('busca', location);
+  }
+
+  isBuscaChange(nextProps) {
+    const { location } = nextProps;
+    const newBusca = getParamUrl('busca', location);
+    const oldBusca = this.getBusca();
+
+    return oldBusca !== newBusca;
+  }
+
+  componentDidUpdate(nextProps) {
+    if (this.isBuscaChange(nextProps)) {
+      this.carregaLista();
+    }
+  }
+
   componentDidMount() {
+    document.title = 'Mercado Livre';
+
+    this.carregaLista();
+  }
+
+  carregaLista() {
     const { getListaProdutos } = this.props;
-    getListaProdutos();
+    const busca = this.getBusca();
+
+    getListaProdutos(busca);
   }
 
   renderCard = (produto) => (
@@ -43,7 +71,7 @@ ProdutosView.propTypes = {
   getListaProdutos: PropTypes.func.isRequired,
   produtos: PropTypes.array.isRequired,
   loadingView: PropTypes.bool.isRequired,
-  busca: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default ProdutosView;

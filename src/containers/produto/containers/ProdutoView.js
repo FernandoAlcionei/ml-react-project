@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import './styles.scss';
-import Card from '../../../components/Card';
 import Button from '../../../components/Button/index';
+import { getParamUrl } from '../../../lib/utils';
 
 class ProdutoView extends Component {
   constructor(props) {
@@ -12,21 +12,12 @@ class ProdutoView extends Component {
 
   componentDidMount() {
     const { getProduto } = this.props;
-    const { match: { params: { id } } } = this.props;
+    const { location, match: { params: { id } } } = this.props;
+
+    document.title = getParamUrl('title', location);
 
     getProduto(id);
   }
-
-  renderCard = (produto) => (
-    <Card
-      key={produto.id}
-      titulo={produto.title}
-      descricao="Completo Unico!"
-      imagem={produto.thumbnail}
-      preco={produto.price}
-      cidade="estado"
-    />
-  )
 
   render() {
     const { produto, descriptions } = this.props;
@@ -78,6 +69,7 @@ class ProdutoView extends Component {
 ProdutoView.propTypes = {
   getProduto: PropTypes.func.isRequired,
   produto: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   descriptions: PropTypes.array.isRequired,
   loadingView: PropTypes.bool.isRequired,
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }).isRequired }).isRequired,
