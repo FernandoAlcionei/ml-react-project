@@ -72,7 +72,7 @@ class ProdutoView extends Component {
       <div className="produto-view">
         <Loader show={loadingView} />
 
-        { !loadingView && produto ? this.renderInfoProduto(produto, descriptions) : null }
+        { !loadingView && produto.id ? this.renderInfoProduto(produto, descriptions) : null }
       </div>
     );
   }

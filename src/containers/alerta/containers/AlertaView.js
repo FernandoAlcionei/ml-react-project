@@ -10,18 +10,18 @@ class AlertaView extends Component {
   }
 
   componentWillUnmount() {
-    const { limparReducer } = this.props;
-    limparReducer();
+    const { clearReducer } = this.props;
+    clearReducer();
   }
 
   render() {
-    const { mensagens, removerAlerta } = this.props;
+    const { alerts, deleteAlert } = this.props;
 
     return (
-      <div className="alerta-view">
+      <div className="alert-view">
         {
-          mensagens.map((mensagem) => (
-            <Alert key={mensagem.id} alerta={mensagem} remover={removerAlerta} />
+          alerts.map((alert) => (
+            <Alert key={alert.id} alert={alert} remove={deleteAlert} />
           ))
         }
       </div>
@@ -30,9 +30,9 @@ class AlertaView extends Component {
 }
 
 AlertaView.propTypes = {
-  limparReducer: PropTypes.func.isRequired,
-  mensagens: PropTypes.array.isRequired,
-  removerAlerta: PropTypes.func.isRequired,
+  clearReducer: PropTypes.func.isRequired,
+  alerts: PropTypes.array.isRequired,
+  deleteAlert: PropTypes.func.isRequired,
 };
 
 export default AlertaView;

@@ -17,7 +17,7 @@ export function* listaProdutos(api, { payload }) {
 
     yield put(produtosActions.adicionaProdutos(results));
   } else {
-    yield put(alertaActions.adicionarAlerta(mensagens.servicoIndisponivel, tipoMsg.erro));
+    yield put(alertaActions.addAlert(mensagens.servicoIndisponivel, tipoMsg.erro));
   }
 
   yield put(produtosActions.loading(false));

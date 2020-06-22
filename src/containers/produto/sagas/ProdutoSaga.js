@@ -16,7 +16,7 @@ export function* infoProduto(api, { payload }) {
     yield put(produtoActions.adicionaProduto(response.data));
     yield put(produtoActions.sagaListaDescricaoProduto(id));
   } else {
-    yield put(alertaActions.adicionarAlerta(mensagens.servicoIndisponivel, tipoMsg.erro));
+    yield put(alertaActions.addAlert(mensagens.servicoIndisponivel, tipoMsg.erro));
   }
 
   yield put(produtoActions.loading(false));
@@ -30,10 +30,10 @@ export function* listaDescricaoProduto(api, { payload }) {
   if (response && response.ok) {
     yield put(produtoActions.adicionaDescricaoProduto(response.data));
   } else {
-    yield put(alertaActions.adicionarAlerta(mensagens.servicoIndisponivel, tipoMsg.erro));
+    yield put(alertaActions.addAlert(mensagens.servicoIndisponivel, tipoMsg.erro));
   }
 }
 
 export function* compraProduto() {
-  yield put(alertaActions.adicionarAlerta('Compra realizada com sucesso!', tipoMsg.sucesso));
+  yield put(alertaActions.addAlert('Compra realizada com sucesso!', tipoMsg.sucesso));
 }

@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import AlertaView from './AlertaView';
-import { limparReducer, removerAlerta } from '../actions';
+import { clearReducer, deleteAlert } from '../actions';
 
 const AlertaContainer = AlertaView;
 
-const mapStateToProps = (state) => ({ mensagens: state.alertaReducer.mensagens });
+const mapStateToProps = (state) => ({ alerts: state.alertReducer.alerts });
 
 const mapDispatchToProps = (dispatch) => ({
-  limparReducer: () => dispatch(limparReducer()),
-  removerAlerta: (id) => dispatch(removerAlerta(id)),
+  clearReducer: () => dispatch(clearReducer()),
+  deleteAlert: (id) => dispatch(deleteAlert(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlertaContainer);

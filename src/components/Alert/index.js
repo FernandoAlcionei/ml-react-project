@@ -11,29 +11,29 @@ class Alert extends Component {
   }
 
   componentDidMount() {
-    const { alerta: { id, timeout }, remover } = this.props;
+    const { alert: { id, timeout }, remove } = this.props;
 
-    setTimeout(() => remover(id), timeout);
+    setTimeout(() => remove(id), timeout);
   }
 
   render() {
-    const { remover, alerta } = this.props;
+    const { remove, alert } = this.props;
 
     return (
-      <div className={getClasses(['alert-component', alerta.tipo])}>
+      <div className={getClasses(['alert-component', alert.type])}>
         <span>
-          { alerta.titulo }
+          { alert.title }
         </span>
 
-        <ButtonIcon onClick={() => remover(alerta.id)} icon="close" color="#FFF" size="14px" />
+        <ButtonIcon onClick={() => remove(alert.id)} icon="close" color="#FFF" size="14px" />
       </div>
     );
   }
 }
 
 Alert.propTypes = {
-  remover: PropTypes.func.isRequired,
-  alerta: PropTypes.object.isRequired,
+  remove: PropTypes.func.isRequired,
+  alert: PropTypes.object.isRequired,
 };
 
 Alert.defaultProps = {};

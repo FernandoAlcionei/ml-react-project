@@ -1,30 +1,30 @@
 import { createReducer } from 'reduxsauce';
 import * as types from './actionTypes';
 
-const INITIAL_STATE = { mensagens: [] };
+const INITIAL_STATE = { alerts: [] };
 
-const limparReducer = () => ({ ...INITIAL_STATE });
+const clearReducer = () => ({ ...INITIAL_STATE });
 
-const adicionarAlerta = (state = INITIAL_STATE, action) => ({
+const addAlert = (state = INITIAL_STATE, action) => ({
   ...state,
-  mensagens: state.mensagens.concat([action.payload.mensagem]),
+  alerts: state.alerts.concat([action.payload.alert]),
 });
 
-const removerAlerta = (state = INITIAL_STATE, action) => {
-  const { mensagens } = state;
-  const listaDeMensagens = [];
+const deleteAlert = (state = INITIAL_STATE, action) => {
+  const { alerts } = state;
+  const alertList = [];
 
-  mensagens.forEach((mensagem) => {
-    if (mensagem.id !== action.payload.id) {
-      listaDeMensagens.push(mensagem);
+  alerts.forEach((alert) => {
+    if (alert.id !== action.payload.id) {
+      alertList.push(alert);
     }
   });
 
-  return ({ ...state, mensagens: listaDeMensagens });
+  return ({ ...state, alerts: alertList });
 };
 
-export const alertaReducer = createReducer(INITIAL_STATE, {
-  [types.LIMPAR_REDUCER]: limparReducer,
-  [types.ADICIONAR_ALERTA]: adicionarAlerta,
-  [types.REMOVER_ALERTA]: removerAlerta,
+export const alertReducer = createReducer(INITIAL_STATE, {
+  [types.CLEAR_REDUCER]: clearReducer,
+  [types.ADD_ALERT]: addAlert,
+  [types.DELETE_ALERT]: deleteAlert,
 });

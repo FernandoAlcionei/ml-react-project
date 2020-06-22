@@ -1,26 +1,26 @@
 import * as types from './actionTypes';
 
-export function limparReducer() {
-  return { type: types.LIMPAR_REDUCER };
+export function clearReducer() {
+  return { type: types.CLEAR_REDUCER };
 }
 
-export function adicionarAlerta(titulo, tipo, timeout = 5000) {
+export function addAlert(title, type, timeout = 5000) {
   return {
-    type: types.ADICIONAR_ALERTA,
+    type: types.ADD_ALERT,
     payload: {
-      mensagem: {
+      alert: {
         id: new Date().getTime(),
-        titulo,
+        title,
         timeout,
-        tipo,
+        type,
       },
     },
   };
 }
 
-export function removerAlerta(id) {
+export function deleteAlert(id) {
   return {
-    type: types.REMOVER_ALERTA,
+    type: types.DELETE_ALERT,
     payload: { id },
   };
 }
