@@ -21,7 +21,7 @@ class HeaderView extends Component {
   constructor(props) {
     super(props);
 
-    const search = getParamUrl('busca', props.location);
+    const search = getParamUrl('search', props.location);
 
     this.state = { search };
   }
@@ -31,7 +31,7 @@ class HeaderView extends Component {
     const { search } = this.state;
 
     if (search) {
-      history.push(`/?busca=${search}`);
+      history.push(`/?search=${search}`);
     } else {
       history.push('/');
     }

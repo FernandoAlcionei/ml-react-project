@@ -1,9 +1,9 @@
 import * as types from './actionTypes';
 
-export function sagaListaProdutos(busca) {
+export function sagaProductList(search) {
   return {
-    type: types.SAGA_LISTA_PRODUTOS,
-    payload: { busca },
+    type: types.SAGA_PRODUCT_LIST,
+    payload: { search },
   };
 }
 
@@ -14,9 +14,9 @@ export function loading(loadingView) {
   };
 }
 
-export function adicionaProdutos(produtos) {
+export function addProducts(products) {
   return {
-    type: types.ADICIONA_PRODUTOS,
-    payload: { produtos },
+    type: types.ADD_PRODUCTS,
+    payload: { products },
   };
 }

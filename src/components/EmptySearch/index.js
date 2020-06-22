@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles.scss';
 
-class MsgSemResultado extends Component {
+class EmptySearch extends Component {
   constructor(props) {
     super(props);
     this.state = { };
@@ -25,4 +25,4 @@ class MsgSemResultado extends Component {
   }
 }
 
-export default MsgSemResultado;
+export default EmptySearch;

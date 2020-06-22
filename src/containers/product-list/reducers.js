@@ -3,8 +3,7 @@ import * as types from './actionTypes';
 
 const INITIAL_STATE = {
   loadingView: false,
-  produtos: [],
-  busca: '',
+  products: [],
 };
 
 const loading = (state = INITIAL_STATE, action) => ({
@@ -12,12 +11,12 @@ const loading = (state = INITIAL_STATE, action) => ({
   loadingView: action.payload.loading,
 });
 
-const adicionaProdutos = (state = INITIAL_STATE, action) => ({
+const addProducts = (state = INITIAL_STATE, action) => ({
   ...state,
-  produtos: action.payload.produtos,
+  products: action.payload.products,
 });
 
-export const produtosReducer = createReducer(INITIAL_STATE, {
+export const productListReducer = createReducer(INITIAL_STATE, {
   [types.LOADING]: loading,
-  [types.ADICIONA_PRODUTOS]: adicionaProdutos,
+  [types.ADD_PRODUCTS]: addProducts,
 });
