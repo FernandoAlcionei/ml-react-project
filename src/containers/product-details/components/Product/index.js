@@ -1,10 +1,11 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import Button from '../../../../components/Button';
 import { formatPrice } from '../../../../lib/utils';
 import './styles.scss';
 
-const Product = ({ product, buy }) => {
+const Product = ({ product, buy, t }) => {
   const getDecimals = (decimals) => (decimals === 0 ? '00' : decimals);
 
   return (
@@ -16,7 +17,7 @@ const Product = ({ product, buy }) => {
 
         <div className="product-info">
           <span className="sold-quantity">
-            { product.condition } - { product.sold_quantity } vendidos
+            { product.condition } - { product.sold_quantity } {t('vendidos')}
           </span>
 
           <h2 className="title">
@@ -32,13 +33,13 @@ const Product = ({ product, buy }) => {
             </span>
           </div>
 
-          <Button className="buy-btn" onClick={() => buy()} label="Comprar" />
+          <Button className="buy-btn" onClick={() => buy()} label={t('comprar')} />
         </div>
       </div>
 
       <div className="wrap-descriptions">
         <span className="description-label">
-          Descripción del produto
+          {t('Descripción del produto')}
         </span>
 
         <p className="description">
@@ -52,6 +53,7 @@ const Product = ({ product, buy }) => {
 Product.propTypes = {
   buy: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
-export default Product;
+export default withTranslation()(Product);
