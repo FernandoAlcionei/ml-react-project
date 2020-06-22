@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 import Search from '../../../components/Search';
@@ -25,18 +25,23 @@ class HeaderView extends Component {
   }
 
   render() {
+    const { location } = this.props;
+
     return (
       <div className="header-view">
         <Link to="/">
           <img src={logo} className="logo" alt="Mercado Livre" />
         </Link>
 
-        <Search onClick={(busca) => this.getLista(busca)} placeholder="Buscar..." />
+        <Search location={location} onClick={(busca) => this.getLista(busca)} placeholder="Buscar..." />
       </div>
     );
   }
 }
 
-HeaderView.propTypes = { history: PropTypes.object.isRequired };
+HeaderView.propTypes = {
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 export default HeaderView;

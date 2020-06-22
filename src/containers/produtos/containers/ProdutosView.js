@@ -4,6 +4,7 @@ import './styles.scss';
 import Card from '../../../components/Card/index';
 import { getParamUrl } from '../../../lib/utils';
 import Loader from '../../../components/Loader/index';
+import MsgSemResultado from '../../../components/MsgSemResultado/index';
 
 class ProdutosView extends Component {
   constructor(props) {
@@ -62,6 +63,8 @@ class ProdutosView extends Component {
       <div className="produtos-view">
         <div className="wrap-produtos">
           <Loader show={loadingView} />
+
+          { !loadingView && !produtos.length ? <MsgSemResultado /> : null }
 
           { !loadingView ? produtos.map((produto) => this.renderCard(produto)) : null }
         </div>

@@ -3,7 +3,16 @@
 .msg-sem-resultado-component {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $light-grey;
+
+    .mensagem {
+        font-size: 24px;
+    }
+
+    .info-adicional {
+        font-size: 16px;
+        color: $medium-grey;
+    }
 }

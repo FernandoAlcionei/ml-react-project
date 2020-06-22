@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import Input from '../Input';
 import ButtonIcon from '../ButtonIcon/index';
 import images from '../../config/images';
+import { getParamUrl } from '../../lib/utils';
 
 const { icons } = images;
 
@@ -11,7 +12,9 @@ class Search extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { busca: '' };
+    const busca = getParamUrl('busca', props.location);
+
+    this.state = { busca };
   }
 
   onSubmit(event) {
@@ -46,6 +49,7 @@ class Search extends Component {
 Search.propTypes = {
   onClick: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
+  location: PropTypes.object.isRequired,
 };
 
 Search.defaultProps = { placeholder: '' };
