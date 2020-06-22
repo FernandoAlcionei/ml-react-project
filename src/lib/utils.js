@@ -8,11 +8,12 @@ export const getParamUrl = (name, location) => {
 export const getClasses = (classes) => classes.join(' ');
 
 export const formatPrice = (value, currency) => {
-  const result = value.toLocaleString('es-AR', {
+  // LocaleString is not Working very well
+  value.toLocaleString('es-AR', {
     style: 'currency',
     currency,
     minimumFractionDigits: 0,
   });
 
-  return result;
+  return `$ ${value}`.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 };
