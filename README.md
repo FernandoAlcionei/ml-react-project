@@ -9,3 +9,6 @@
   - npm run lint
  - Back-end
     - https://github.com/FernandoAlcionei/ml-node-project
+- Melhorias
+  - Finalizar os testes unitários dos containers
+  - Adicionar internacionalização utilizando i18n
