@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 import Search from '../../../components/Search';
 import images from '../../../config/images';
+import Breadcrumb from '../../../components/Breadcrumb';
 
 const { logo } = images;
+
+const mockBreadcrumb = ['Electrónica, Audio y Video', 'iPod', 'Reproductores', 'iPod touch', '32 GB'];
 
 class HeaderView extends Component {
   constructor(props) {
@@ -29,11 +32,19 @@ class HeaderView extends Component {
 
     return (
       <div className="header-view">
-        <Link to="/">
-          <img src={logo} className="logo" alt="Mercado Livre" />
-        </Link>
+        <div className="header">
+          <div className="content">
+            <Link to="/">
+              <img src={logo} className="logo" alt="Mercado Livre" />
+            </Link>
 
-        <Search location={location} onClick={(busca) => this.getLista(busca)} placeholder="Buscar..." />
+            <Search location={location} onClick={(busca) => this.getLista(busca)} placeholder="Buscar..." />
+          </div>
+        </div>
+
+        <div className="wrap-breadcrumb">
+          <Breadcrumb lista={mockBreadcrumb} />
+        </div>
       </div>
     );
   }

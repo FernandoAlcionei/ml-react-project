@@ -20,4 +20,8 @@
     &.loading {
         @include add-icon("../../images/icons/loading.svg")
     }
+
+    &.chevron-right {
+        @include add-icon("../../images/icons/chevron-right.svg")
+    }
 }

@@ -1,0 +1,23 @@
+@import "../ColorsAji/styles.scss";
+@import '../ColorsAji/styles.scss';
+
+.breadcrumb-component {
+    color: $grey;
+    display: flex;
+    flex-direction: row;
+
+    .label {
+        font-size: 14px;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+
+        .icon-svg {
+            height: 16px;
+            width: 16px;
+            background-color: $grey;
+            margin: 0 2px;
+        }
+    }
+
+}

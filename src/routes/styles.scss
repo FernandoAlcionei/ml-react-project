@@ -10,10 +10,11 @@
     flex-direction: column;
 
     .wrap-routes {
-        margin: 0px 85px;
         background-color: $white;
         flex: 1;
         display: flex;
         flex-direction: column;
+        width: $page-width;
+        margin: 0 auto;
     }
 }
