@@ -24,6 +24,11 @@ class ProductListView extends Component {
     this.getProducts();
   }
 
+  componentWillUnmount() {
+    const { clearReducer } = this.props;
+    clearReducer();
+  }
+
   isSearchChanged(nextProps) {
     const { location } = nextProps;
     const nextPropsSearch = getParamUrl('search', location);
@@ -92,6 +97,7 @@ class ProductListView extends Component {
 }
 
 ProductListView.propTypes = {
+  clearReducer: PropTypes.func.isRequired,
   getProductList: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired,
   loadingView: PropTypes.bool.isRequired,

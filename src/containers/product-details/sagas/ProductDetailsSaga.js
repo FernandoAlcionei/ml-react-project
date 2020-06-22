@@ -29,8 +29,6 @@ export function* getProductDescriptions(api, { payload }) {
 
   if (response && response.ok) {
     yield put(productDetailsActions.addProductDescriptions(response.data));
-  } else {
-    yield put(alertActions.addAlert(notifications.unavailableService, typeNotification.error));
   }
 }
 

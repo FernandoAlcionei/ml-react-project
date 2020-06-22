@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProductDetailsView from './ProductDetailsView';
-import { sagaProductDetails, sagaBuyProduct } from '../actions';
+import { clearReducer, sagaProductDetails, sagaBuyProduct } from '../actions';
 
 const ProductDetailsContainer = ProductDetailsView;
 
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  clearReducer: () => dispatch(clearReducer()),
   getProductDetails: (id) => dispatch(sagaProductDetails(id)),
   buyProduct: (id) => dispatch(sagaBuyProduct(id)),
 });

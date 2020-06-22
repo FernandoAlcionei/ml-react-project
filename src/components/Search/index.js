@@ -28,7 +28,7 @@ class Search extends Component {
           <Input
             value={value}
             onChange={(text) => onChangeValue(text)}
-            placeholder="Buscar..."
+            placeholder="Nunca dejes de buscar"
           />
 
           <ButtonIcon onClick={() => onClick()} imageIcon={icons.search} size="18px" />

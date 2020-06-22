@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProductListView from './ProductListView';
-import { sagaProductList } from '../actions';
+import { clearReducer, sagaProductList } from '../actions';
 
 const ProductListContainer = ProductListView;
 
@@ -9,6 +9,9 @@ const mapStateToProps = (state) => ({
   loadingView: state.productListReducer.loadingView,
 });
 
-const mapDispatchToProps = (dispatch) => ({ getProductList: (search) => dispatch(sagaProductList(search)) });
+const mapDispatchToProps = (dispatch) => ({
+  clearReducer: () => dispatch(clearReducer()),
+  getProductList: (search) => dispatch(sagaProductList(search)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer);

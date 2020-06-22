@@ -12,7 +12,7 @@ class Card extends Component {
   getCardLink() {
     const { id, title } = this.props;
 
-    return `/product-details/${id}?title=${title}`;
+    return `/items/${id}?title=${title}`;
   }
 
   render() {

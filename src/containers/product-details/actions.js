@@ -1,17 +1,7 @@
 import * as types from './actionTypes';
 
-export function sagaProductDetails(id) {
-  return {
-    type: types.SAGA_PRODUCT_DETAILS,
-    payload: { id },
-  };
-}
-
-export function sagaBuyProduct(id) {
-  return {
-    type: types.SAGA_BUY_PRODUCT,
-    payload: { id },
-  };
+export function clearReducer() {
+  return { type: types.CLEAR_REDUCER };
 }
 
 export function loading(loadingView) {
@@ -28,16 +18,30 @@ export function addProduct(product) {
   };
 }
 
-export function sagaProductDescriptions(id) {
-  return {
-    type: types.SAGA_PRODUCT_DESCRIPTIONS,
-    payload: { id },
-  };
-}
-
 export function addProductDescriptions(descriptions) {
   return {
     type: types.ADD_PRODUCT_DESCRIPTIONS,
     payload: { descriptions },
+  };
+}
+
+export function sagaProductDetails(id) {
+  return {
+    type: types.SAGA_PRODUCT_DETAILS,
+    payload: { id },
+  };
+}
+
+export function sagaBuyProduct(id) {
+  return {
+    type: types.SAGA_BUY_PRODUCT,
+    payload: { id },
+  };
+}
+
+export function sagaProductDescriptions(id) {
+  return {
+    type: types.SAGA_PRODUCT_DESCRIPTIONS,
+    payload: { id },
   };
 }

@@ -20,6 +20,11 @@ class ProductDetailsView extends Component {
     getProductDetails(id);
   }
 
+  componentWillUnmount() {
+    const { clearReducer } = this.props;
+    clearReducer();
+  }
+
   buy() {
     const { product: { id }, buyProduct } = this.props;
 
@@ -52,6 +57,7 @@ class ProductDetailsView extends Component {
 }
 
 ProductDetailsView.propTypes = {
+  clearReducer: PropTypes.func.isRequired,
   getProductDetails: PropTypes.func.isRequired,
   buyProduct: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,

@@ -31,7 +31,7 @@ class HeaderView extends Component {
     const { search } = this.state;
 
     if (search) {
-      history.push(`/?search=${search}`);
+      history.push(`/items?search=${search}`);
     } else {
       history.push('/');
     }
