@@ -15,6 +15,8 @@ class ProductDetailsView extends Component {
     const { getProductDetails } = this.props;
     const { location, match: { params: { id } } } = this.props;
 
+    window.scrollTo(0, 0);
+
     document.title = getParamUrl('title', location);
 
     getProductDetails(id);
