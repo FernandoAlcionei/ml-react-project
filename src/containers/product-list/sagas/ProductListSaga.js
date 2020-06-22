@@ -13,9 +13,9 @@ export function* getProductList(api, { payload }) {
   const response = yield call(api.getProductList, search);
 
   if (response && response.ok) {
-    const { results } = response.data;
+    const { items } = response.data;
 
-    yield put(productListActions.addProducts(results));
+    yield put(productListActions.addProducts(items));
   } else {
     yield put(alertActions.addAlert(notifications.unavailableService, typeNotification.error));
   }

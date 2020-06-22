@@ -9,20 +9,14 @@ class Product extends Component {
     this.state = {};
   }
 
-  renderDescription = (description) => (
-    <p key={description.id} className="description">
-      { description.plain_text }
-    </p>
-  )
-
   render() {
-    const { product, descriptions, buy } = this.props;
+    const { product, buy } = this.props;
 
     return (
       <div className="product-component">
         <div className="wrap-product-info">
           <div className="wrap-product-img">
-            <img className="product-img" src={product.pictures[0].url} alt={product.title} />
+            <img className="product-img" src={product.picture} alt={product.title} />
           </div>
 
           <div className="product-info">
@@ -35,7 +29,7 @@ class Product extends Component {
             </h2>
 
             <span className="price">
-              $ { product.price }
+              $ { product.price.amount }
             </span>
 
             <Button className="buy-btn" onClick={() => buy()} label="Comprar" />
@@ -44,10 +38,12 @@ class Product extends Component {
 
         <div className="wrap-descriptions">
           <span className="description-label">
-            Descrição do produto
+            Descripción del produto
           </span>
 
-          { descriptions.map((description) => this.renderDescription(description)) }
+          <p className="description">
+            { product.description }
+          </p>
         </div>
       </div>
     );
@@ -57,7 +53,6 @@ class Product extends Component {
 Product.propTypes = {
   buy: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
-  descriptions: PropTypes.array.isRequired,
 };
 
 export default Product;

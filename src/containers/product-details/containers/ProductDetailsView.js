@@ -32,11 +32,11 @@ class ProductDetailsView extends Component {
   }
 
   renderProduct() {
-    const { loadingView, product, productDescriptions } = this.props;
+    const { loadingView, product } = this.props;
 
     if (!loadingView && product.id) {
       return (
-        <Product buy={() => this.buy()} product={product} descriptions={productDescriptions} />
+        <Product buy={() => this.buy()} product={product} />
       );
     }
 
@@ -62,7 +62,6 @@ ProductDetailsView.propTypes = {
   buyProduct: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  productDescriptions: PropTypes.array.isRequired,
   loadingView: PropTypes.bool.isRequired,
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }).isRequired }).isRequired,
 };

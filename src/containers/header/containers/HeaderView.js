@@ -45,7 +45,7 @@ class HeaderView extends Component {
         <div className="header">
           <div className="content">
             <Link to="/">
-              <img src={logo} className="logo" alt="Mercado Livre" />
+              <img src={logo} className="logo" alt="Mercado Libre" />
             </Link>
 
             <Search

@@ -3,8 +3,8 @@ const notifications = {
     error: 'error',
     success: 'success',
   },
-  unavailableService: 'Serviço temporariamente indisponível.',
-  paymentDone: 'Compra realizada com sucesso!',
+  unavailableService: 'Servicio temporalmente no disponible.',
+  paymenReceived: 'Pago recibido con éxito!',
 };
 
 export default notifications;

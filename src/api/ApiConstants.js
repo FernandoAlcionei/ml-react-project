@@ -1,8 +1,6 @@
 const ApiConstants = {
-  uri: 'https://api.mercadolibre.com',
-  items: '/items',
-  descriptions: '/descriptions',
-  search: '/sites/MLA/search',
+  uri: 'http://localhost:5000',
+  items: '/api/items',
 };
 
 export default ApiConstants;

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import images from '../../config/images';
 import './styles.scss';
+
+const { icons } = images;
 
 class Card extends Component {
   constructor(props) {
@@ -15,8 +18,12 @@ class Card extends Component {
     return `/items/${id}?title=${title}`;
   }
 
+  renderFreeShipping = (freeShipping) => (freeShipping ? (
+    <img src={icons.shipping} alt="Envío gratis" className="free-shipping" />
+  ) : null);
+
   render() {
-    const { title, price, description, thumbnail, state } = this.props;
+    const { title, price, description, thumbnail, state, freeShipping } = this.props;
 
     return (
       <div className="card-component">
@@ -26,7 +33,11 @@ class Card extends Component {
 
         <div className="product-info">
           <Link to={this.getCardLink()} className="price">
-            $ {price}
+            <span>
+              $ {price}
+            </span>
+
+            { this.renderFreeShipping(freeShipping) }
           </Link>
 
           <span className="state">
@@ -55,8 +66,7 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
+  freeShipping: PropTypes.bool.isRequired,
 };
-
-Card.defaultProps = {};
 
 export default Card;

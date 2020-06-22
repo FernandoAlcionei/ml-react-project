@@ -13,8 +13,8 @@ export function* getProductDetails(api, { payload }) {
   const response = yield call(api.getProductDetails, id);
 
   if (response && response.ok) {
-    yield put(productDetailsActions.addProduct(response.data));
-    yield put(productDetailsActions.sagaProductDescriptions(id));
+    const { item } = response.data;
+    yield put(productDetailsActions.addProduct(item));
   } else {
     yield put(alertActions.addAlert(notifications.unavailableService, typeNotification.error));
   }
@@ -22,16 +22,6 @@ export function* getProductDetails(api, { payload }) {
   yield put(productDetailsActions.loading(false));
 }
 
-export function* getProductDescriptions(api, { payload }) {
-  const { id } = payload;
-
-  const response = yield call(api.getProductDescriptions, id);
-
-  if (response && response.ok) {
-    yield put(productDetailsActions.addProductDescriptions(response.data));
-  }
-}
-
 export function* buyProduct() {
-  yield put(alertActions.addAlert(notifications.paymentDone, typeNotification.success));
+  yield put(alertActions.addAlert(notifications.paymenReceived, typeNotification.success));
 }

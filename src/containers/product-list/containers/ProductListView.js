@@ -19,7 +19,7 @@ class ProductListView extends Component {
   }
 
   componentDidMount() {
-    document.title = 'Mercado Livre';
+    document.title = 'Mercado Libre';
 
     this.getProducts();
   }
@@ -58,10 +58,11 @@ class ProductListView extends Component {
           key={product.id}
           id={product.id}
           title={product.title}
-          description="Completo Unico!"
-          thumbnail={product.thumbnail}
-          price={product.price}
-          state={product.address.state_name}
+          description={product.condition}
+          thumbnail={product.picture}
+          price={product.price.amount}
+          state={product.state}
+          freeShipping={product.free_shipping}
         />
       ));
     }

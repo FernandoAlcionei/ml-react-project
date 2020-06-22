@@ -1,7 +1,7 @@
 import apisauce from 'apisauce';
 import ApiConstants from './ApiConstants';
 
-const { uri, items, descriptions, search } = ApiConstants;
+const { uri, items } = ApiConstants;
 
 const create = (baseURL = uri) => {
   const api = apisauce.create({
@@ -10,22 +10,17 @@ const create = (baseURL = uri) => {
     timeout: 20000,
   });
 
-  const getProductList = (text) => (
-    api.get(search, { q: text || 'query' })
+  const getProductList = (search) => (
+    api.get(items, { search })
   );
 
   const getProductDetails = (id) => (
     api.get(`${items}/${id}`)
   );
 
-  const getProductDescriptions = (id) => (
-    api.get(`${items}/${id}${descriptions}`)
-  );
-
   return {
     getProductList,
     getProductDetails,
-    getProductDescriptions,
   };
 };
 

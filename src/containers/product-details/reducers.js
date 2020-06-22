@@ -4,7 +4,6 @@ import * as types from './actionTypes';
 const INITIAL_STATE = {
   loadingView: false,
   product: {},
-  productDescriptions: [],
 };
 
 const clearReducer = () => ({ ...INITIAL_STATE });
@@ -19,14 +18,8 @@ const addProduct = (state = INITIAL_STATE, action) => ({
   product: action.payload.product,
 });
 
-const addProductDescriptions = (state = INITIAL_STATE, action) => ({
-  ...state,
-  productDescriptions: action.payload.descriptions,
-});
-
 export const productDetailsReducer = createReducer(INITIAL_STATE, {
   [types.CLEAR_REDUCER]: clearReducer,
   [types.LOADING]: loading,
   [types.ADD_PRODUCT]: addProduct,
-  [types.ADD_PRODUCT_DESCRIPTIONS]: addProductDescriptions,
 });

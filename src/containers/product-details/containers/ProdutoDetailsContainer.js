@@ -6,7 +6,6 @@ const ProductDetailsContainer = ProductDetailsView;
 
 const mapStateToProps = (state) => ({
   product: state.productDetailsReducer.product,
-  productDescriptions: state.productDetailsReducer.productDescriptions,
   loadingView: state.productDetailsReducer.loadingView,
 });
 

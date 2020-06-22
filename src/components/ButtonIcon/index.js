@@ -20,7 +20,7 @@ class ButtonIcon extends Component {
 
     if (imageIcon) {
       return (
-        <img src={imageIcon} className="img-icon" alt="Carregando..." style={this.getIconStyle()} />
+        <img src={imageIcon} className="img-icon" alt="Cargando..." style={this.getIconStyle()} />
       );
     }
 

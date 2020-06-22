@@ -15,7 +15,7 @@ class NotFoundView extends Component {
         </span>
 
         <span className="message">
-          Página não encontrada.
+          Página no encontrada.
         </span>
       </div>
     );

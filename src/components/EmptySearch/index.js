@@ -12,12 +12,12 @@ class EmptySearch extends Component {
       <div className="empty-search-component">
         <div>
           <span className="message">
-            Não há anúncios que coincidam com a sua busca.
+            No hay anuncios que coincidan con su búsqueda.
           </span>
 
           <ul className="tips">
-            <li>Revise a ortografia da palavra.</li>
-            <li>Utilize palavras mais genéricas ou menos palavras.</li>
+            <li>Revisa la ortografía de la palabra.</li>
+            <li>Use palabras más genéricas o menos palabras.</li>
           </ul>
         </div>
       </div>
