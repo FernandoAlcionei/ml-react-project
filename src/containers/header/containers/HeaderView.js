@@ -47,7 +47,7 @@ class HeaderView extends Component {
       <div className="header-view">
         <div className="header">
           <div className="content">
-            <Link to="/">
+            <Link to="/" onClick={() => this.setState({ search: '' })}>
               <img src={logo} className="logo" alt={t('Mercado Libre')} />
             </Link>
 
