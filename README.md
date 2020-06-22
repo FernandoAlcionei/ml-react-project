@@ -11,3 +11,5 @@
     - https://github.com/FernandoAlcionei/ml-node-project
 - Melhorias
   - Finalizar os testes unitários dos containers
+  - Finalizar o breadcrumb
+    - Não consegui identificar qual propriedade correspondia as categorias do breadcrumb
