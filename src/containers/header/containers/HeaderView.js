@@ -9,6 +9,7 @@ import './styles.scss';
 
 const { logo } = images;
 
+// Não consegui identificar qual propriedade correspondia as categorias do breadcrumb
 const mockBreadcrumb = [
   { id: 'b-1', name: 'Electrónica, Audio y Video' },
   { id: 'b-2', name: 'iPod' },
