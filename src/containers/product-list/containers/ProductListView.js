@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import Card from '../../../components/Card/index';
 import { getParamUrl } from '../../../lib/utils';
 import Loader from '../../../components/Loader/index';
@@ -19,7 +20,8 @@ class ProductListView extends Component {
   }
 
   componentDidMount() {
-    document.title = 'Mercado Libre';
+    const { t } = this.props;
+    document.title = t('Mercado Libre');
 
     this.getProducts();
   }
@@ -94,6 +96,7 @@ ProductListView.propTypes = {
   products: PropTypes.array.isRequired,
   loadingView: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
-export default ProductListView;
+export default withTranslation()(ProductListView);
