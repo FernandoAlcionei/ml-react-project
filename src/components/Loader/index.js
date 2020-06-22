@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { Colors } from '../ColorsAji/index';
 
 class Loader extends Component {
   constructor(props) {
@@ -10,30 +9,22 @@ class Loader extends Component {
   }
 
   render() {
-    const { show, background, color } = this.props;
+    const { show } = this.props;
 
     if (!show) {
       return null;
     }
 
     return (
-      <div className="loader-component" style={{ background }}>
-        <i className="icon-svg loading" style={{ background: color }} />
+      <div className="loader-component">
+        <i className="icon-svg loading" />
       </div>
     );
   }
 }
 
-Loader.propTypes = {
-  show: PropTypes.bool,
-  background: PropTypes.string,
-  color: PropTypes.string,
-};
+Loader.propTypes = { show: PropTypes.bool };
 
-Loader.defaultProps = {
-  show: false,
-  background: Colors.greyTransparent,
-  color: Colors.white,
-};
+Loader.defaultProps = { show: false };
 
 export default Loader;

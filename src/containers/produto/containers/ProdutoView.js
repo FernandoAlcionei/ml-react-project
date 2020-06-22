@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import './styles.scss';
 import Button from '../../../components/Button/index';
 import { getParamUrl } from '../../../lib/utils';
+import Loader from '../../../components/Loader/index';
 
 class ProdutoView extends Component {
   constructor(props) {
@@ -19,48 +20,54 @@ class ProdutoView extends Component {
     getProduto(id);
   }
 
-  render() {
-    const { produto, descriptions } = this.props;
+  renderInfoProduto = (produto, descriptions) => (
+    <div>
+      <div className="wrap-info-produto">
+        <div className="wrap-img-produto">
+          <img className="img-produto" src={produto.pictures[0].url} alt={produto.title} />
+        </div>
 
-    if (!produto || !produto.id) return null;
+        <div className="info-produto">
+          <span className="quantity-sold">
+            { produto.condition } - { produto.sold_quantity } vendidos
+          </span>
+
+          <h2 className="titulo">
+            { produto.title }
+          </h2>
+
+          <span className="price">
+            $ { produto.price }
+          </span>
+
+          <Button className="btn-comprar" onClick={() => {}} label="Comprar" />
+        </div>
+      </div>
+
+      <div className="wrap-descricao">
+        <span className="label-descricao">
+          Descrição do produto
+        </span>
+
+        {
+              descriptions.map((description) => (
+                <p key={description.id} className="descricao">
+                  { description.plain_text }
+                </p>
+              ))
+            }
+      </div>
+    </div>
+  )
+
+  render() {
+    const { produto, descriptions, loadingView } = this.props;
 
     return (
       <div className="produto-view">
-        <div className="wrap-info-produto">
-          <div className="wrap-img-produto">
-            <img className="img-produto" src={produto.pictures[0].url} alt={produto.title} />
-          </div>
+        <Loader show={loadingView} />
 
-          <div className="info-produto">
-            <span className="quantity-sold">
-              { produto.condition } - { produto.sold_quantity } vendidos
-            </span>
-
-            <h2 className="titulo">
-              { produto.title }
-            </h2>
-
-            <span className="price">
-              $ { produto.price }
-            </span>
-
-            <Button className="btn-comprar" onClick={() => {}} label="Comprar" />
-          </div>
-        </div>
-
-        <div className="wrap-descricao">
-          <span className="label-descricao">
-            Descrição do produto
-          </span>
-
-          {
-            descriptions.map((description) => (
-              <p key={description.id} className="descricao">
-                { description.plain_text }
-              </p>
-            ))
-          }
-        </div>
+        { !loadingView && produto ? this.renderInfoProduto(produto, descriptions) : null }
       </div>
     );
   }

@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import './styles.scss';
 import Card from '../../../components/Card/index';
 import { getParamUrl } from '../../../lib/utils';
+import Loader from '../../../components/Loader/index';
 
 class ProdutosView extends Component {
   constructor(props) {
@@ -55,12 +56,14 @@ class ProdutosView extends Component {
   )
 
   render() {
-    const { produtos } = this.props;
+    const { produtos, loadingView } = this.props;
 
     return (
       <div className="produtos-view">
         <div className="wrap-produtos">
-          { produtos.map((produto) => this.renderCard(produto)) }
+          <Loader show={loadingView} />
+
+          { !loadingView ? produtos.map((produto) => this.renderCard(produto)) : null }
         </div>
       </div>
     );

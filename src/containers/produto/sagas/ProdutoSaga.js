@@ -18,6 +18,8 @@ export function* infoProduto(api, { payload }) {
   } else {
     yield put(alertaActions.adicionarAlerta(mensagens.servicoIndisponivel, tipoMsg.erro));
   }
+
+  yield put(produtoActions.loading(false));
 }
 
 export function* listaDescricaoProduto(api, { payload }) {
