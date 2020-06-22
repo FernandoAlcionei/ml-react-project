@@ -25,7 +25,7 @@ class Alert extends Component {
           { alerta.titulo }
         </span>
 
-        <ButtonIcon onClick={() => remover(alerta.id)} icon="close" color="#FFF" />
+        <ButtonIcon onClick={() => remover(alerta.id)} icon="close" color="#FFF" size="14px" />
       </div>
     );
   }

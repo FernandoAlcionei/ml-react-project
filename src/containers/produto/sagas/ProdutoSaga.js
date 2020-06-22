@@ -33,3 +33,7 @@ export function* listaDescricaoProduto(api, { payload }) {
     yield put(alertaActions.adicionarAlerta(mensagens.servicoIndisponivel, tipoMsg.erro));
   }
 }
+
+export function* compraProduto() {
+  yield put(alertaActions.adicionarAlerta('Compra realizada com sucesso!', tipoMsg.sucesso));
+}

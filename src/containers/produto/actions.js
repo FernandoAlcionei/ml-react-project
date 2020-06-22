@@ -7,6 +7,13 @@ export function sagaInfoProduto(id) {
   };
 }
 
+export function sagaCompraProduto(id) {
+  return {
+    type: types.SAGA_COMPRA_PRODUTO,
+    payload: { id },
+  };
+}
+
 export function loading(loadingView) {
   return {
     type: types.LOADING,

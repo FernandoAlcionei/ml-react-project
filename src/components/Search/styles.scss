@@ -8,5 +8,10 @@
     .search-form {
         display: flex;
         flex-direction: row;
+
+        .btn-icon-component {
+            padding: 0 10px;
+            background-color: $light-grey;
+        }
     }
 }

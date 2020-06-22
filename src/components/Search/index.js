@@ -39,7 +39,7 @@ class Search extends Component {
             placeholder={placeholder}
           />
 
-          <ButtonIcon onClick={() => onClick(busca)} icon="icon-search" imgIcon={icons.search} />
+          <ButtonIcon onClick={() => onClick(busca)} icon="icon-search" imgIcon={icons.search} size="18px" />
         </form>
       </div>
     );

@@ -20,6 +20,11 @@ class ProdutoView extends Component {
     getProduto(id);
   }
 
+  compra() {
+    const { produto: { id }, compraProduto } = this.props;
+    compraProduto(id);
+  }
+
   renderInfoProduto = (produto, descriptions) => (
     <div>
       <div className="wrap-info-produto">
@@ -40,7 +45,7 @@ class ProdutoView extends Component {
             $ { produto.price }
           </span>
 
-          <Button className="btn-comprar" onClick={() => {}} label="Comprar" />
+          <Button className="btn-comprar" onClick={() => this.compra()} label="Comprar" />
         </div>
       </div>
 
@@ -75,6 +80,7 @@ class ProdutoView extends Component {
 
 ProdutoView.propTypes = {
   getProduto: PropTypes.func.isRequired,
+  compraProduto: PropTypes.func.isRequired,
   produto: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   descriptions: PropTypes.array.isRequired,
