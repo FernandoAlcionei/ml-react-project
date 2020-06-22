@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import * as produtoActions from '../actions';
-import * as alertaActions from '../../alerta/actions';
+import * as alertaActions from '../../alert/actions';
 import mensagens from '../../../config/mensagens';
 
 const { tipoMsg } = mensagens;

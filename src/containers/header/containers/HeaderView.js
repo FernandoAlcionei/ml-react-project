@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
-
-import './styles.scss';
 import Search from '../../../components/Search';
-import images from '../../../config/images';
 import Breadcrumb from '../../../components/Breadcrumb';
+import images from '../../../config/images';
+import { getParamUrl } from '../../../lib/utils';
+import './styles.scss';
 
 const { logo } = images;
 
@@ -20,21 +20,25 @@ const mockBreadcrumb = [
 class HeaderView extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    const search = getParamUrl('busca', props.location);
+
+    this.state = { search };
   }
 
-  getLista = (busca = '') => {
+  searchProduct = () => {
     const { history } = this.props;
+    const { search } = this.state;
 
-    if (busca) {
-      history.push(`/?busca=${busca}`);
+    if (search) {
+      history.push(`/?busca=${search}`);
     } else {
       history.push('/');
     }
   }
 
   render() {
-    const { location } = this.props;
+    const { search } = this.state;
 
     return (
       <div className="header-view">
@@ -44,12 +48,16 @@ class HeaderView extends Component {
               <img src={logo} className="logo" alt="Mercado Livre" />
             </Link>
 
-            <Search location={location} onClick={(busca) => this.getLista(busca)} placeholder="Buscar..." />
+            <Search
+              value={search}
+              onClick={() => this.searchProduct()}
+              onChangeValue={(value) => this.setState({ search: value })}
+            />
           </div>
         </div>
 
         <div className="wrap-breadcrumb">
-          <Breadcrumb lista={mockBreadcrumb} />
+          <Breadcrumb categories={mockBreadcrumb} />
         </div>
       </div>
     );

@@ -5,6 +5,6 @@ import Api from '../../../api';
 
 const api = Api.create();
 
-export const produtosSagas = [
+export const productListSagas = [
   takeLatest(types.SAGA_LISTA_PRODUTOS, listaProdutos, api),
 ];

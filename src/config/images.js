@@ -1,5 +1,5 @@
 const logo = require('../images/logo.png');
-const search = require('../images/icons/search.png');
+const search = require('../images/icons-png/search.png');
 
 const images = {
   logo,

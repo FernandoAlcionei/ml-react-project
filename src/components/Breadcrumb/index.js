@@ -5,7 +5,6 @@ import './styles.scss';
 class Breadcrumb extends Component {
   constructor(props) {
     super(props);
-
     this.state = {};
   }
 
@@ -14,13 +13,13 @@ class Breadcrumb extends Component {
   ) : null);
 
   render() {
-    const { lista } = this.props;
+    const { categories } = this.props;
 
     return (
       <div className="breadcrumb-component">
-        { lista.map((categoria, index) => (
+        { categories.map((categoria, index) => (
           <span key={categoria.id} className="label">
-            { categoria.name } { this.renderIcon(lista.length, index)}
+            { categoria.name } { this.renderIcon(categories.length, index)}
           </span>
         ))}
       </div>
@@ -28,7 +27,7 @@ class Breadcrumb extends Component {
   }
 }
 
-Breadcrumb.propTypes = { lista: PropTypes.array.isRequired };
+Breadcrumb.propTypes = { categories: PropTypes.array.isRequired };
 
 Breadcrumb.defaultProps = {};
 

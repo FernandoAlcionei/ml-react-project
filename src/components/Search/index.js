@@ -4,42 +4,34 @@ import { PropTypes } from 'prop-types';
 import Input from '../Input';
 import ButtonIcon from '../ButtonIcon/index';
 import images from '../../config/images';
-import { getParamUrl } from '../../lib/utils';
 
 const { icons } = images;
 
 class Search extends Component {
   constructor(props) {
     super(props);
-
-    const busca = getParamUrl('busca', props.location);
-
-    this.state = { busca };
+    this.state = { };
   }
 
   onSubmit(event) {
     event.preventDefault();
-
     const { onClick } = this.props;
-    const { busca } = this.state;
-
-    onClick(busca);
+    onClick();
   }
 
   render() {
-    const { onClick, placeholder } = this.props;
-    const { busca } = this.state;
+    const { onClick, value, onChangeValue } = this.props;
 
     return (
       <div className="search-component">
         <form onSubmit={this.onSubmit.bind(this)} className="search-form">
           <Input
-            value={busca}
-            onChange={(value) => this.setState({ busca: value })}
-            placeholder={placeholder}
+            value={value}
+            onChange={(text) => onChangeValue(text)}
+            placeholder="Buscar..."
           />
 
-          <ButtonIcon onClick={() => onClick(busca)} icon="icon-search" imgIcon={icons.search} size="18px" />
+          <ButtonIcon onClick={() => onClick()} icon="icon-search" imgIcon={icons.search} size="18px" />
         </form>
       </div>
     );
@@ -48,10 +40,8 @@ class Search extends Component {
 
 Search.propTypes = {
   onClick: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  location: PropTypes.object.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
+  value: PropTypes.any.isRequired,
 };
-
-Search.defaultProps = { placeholder: '' };
 
 export default Search;

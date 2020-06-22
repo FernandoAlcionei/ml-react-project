@@ -4,7 +4,7 @@ import './styles.scss';
 import Loader from '../components/Loader';
 import { Colors } from '../components/ColorsAji/index';
 
-import AlertContainer from '../containers/alerta/containers/AlertaContainer';
+import AlertContainer from '../containers/alert/containers/AlertContainer';
 import HeaderContainer from '../containers/header/containers/HeaderContainer';
 
 const ProductList = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));

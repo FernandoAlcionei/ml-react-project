@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import Alert from '../../../components/Alert';
 
-class AlertaView extends Component {
+class AlertView extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -19,20 +19,16 @@ class AlertaView extends Component {
 
     return (
       <div className="alert-view">
-        {
-          alerts.map((alert) => (
-            <Alert key={alert.id} alert={alert} remove={deleteAlert} />
-          ))
-        }
+        { alerts.map((alert) => <Alert key={alert.id} alert={alert} remove={deleteAlert} />) }
       </div>
     );
   }
 }
 
-AlertaView.propTypes = {
+AlertView.propTypes = {
   clearReducer: PropTypes.func.isRequired,
   alerts: PropTypes.array.isRequired,
   deleteAlert: PropTypes.func.isRequired,
 };
 
-export default AlertaView;
+export default AlertView;
