@@ -5,6 +5,7 @@ import './styles.scss';
 
 const Button = ({ label, onClick, btnType, className, disable }) => (
   <button
+    data-testid="button-component"
     disabled={disable}
     type="button"
     className={getClasses(['btn-component', btnType, className])}

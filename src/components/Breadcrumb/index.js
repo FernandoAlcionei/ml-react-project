@@ -12,13 +12,13 @@ const Breadcrumb = ({ categories }) => {
   };
 
   const renderCategory = (category, index) => (
-    <span key={category.id} className="label">
+    <span key={category.id} data-testid={category.id} className="label">
       { category.name } { renderIcon(index) }
     </span>
   );
 
   return (
-    <div className="breadcrumb-component">
+    <div data-testid="bredcrumb-component" className="breadcrumb-component">
       { categories.map((category, index) => renderCategory(category, index))}
     </div>
   );

@@ -3,23 +3,34 @@ import PropTypes from 'prop-types';
 import { getClasses } from '../../lib/utils';
 import './styles.scss';
 
-const ButtonIcon = ({ onClick, imageIcon, icon, color, size }) => {
+const ButtonIcon = ({ onClick, imageIcon, icon, color, size, testid }) => {
   const getIconStyle = () => ({ width: size, height: size, backgroundColor: color });
 
   const renderIcon = () => {
     if (imageIcon) {
       return (
-        <img src={imageIcon} className="img-icon" alt="Cargando..." style={getIconStyle()} />
+        <img
+          data-testid="image-icon"
+          src={imageIcon}
+          className="img-icon"
+          alt="Cargando..."
+          style={getIconStyle()}
+        />
       );
     }
 
     return (
-      <i className={getClasses(['icon-svg', icon])} style={getIconStyle()} />
+      <i data-testid="icon-svg" className={getClasses(['icon-svg', icon])} style={getIconStyle()} />
     );
   };
 
   return (
-    <button type="button" className="btn-icon-component" onClick={onClick}>
+    <button
+      data-testid={testid}
+      type="button"
+      className="btn-icon-component"
+      onClick={onClick}
+    >
       { renderIcon() }
     </button>
   );
@@ -31,12 +42,14 @@ ButtonIcon.propTypes = {
   icon: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.string.isRequired,
+  testid: PropTypes.string,
 };
 
 ButtonIcon.defaultProps = {
   imageIcon: '',
   icon: '',
   color: '',
+  testid: 'button-icon-component',
 };
 
 export default ButtonIcon;

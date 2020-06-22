@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Loader = ({ show }) => (show ? (
-  <div className="loader-component">
+  <div data-testid="loader-component" className="loader-component">
     <i className="icon-svg loading" />
   </div>
 ) : null);

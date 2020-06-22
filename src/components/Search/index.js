@@ -14,15 +14,16 @@ const Search = ({ onClick, value, onChangeValue }) => {
   };
 
   return (
-    <div className="search-component">
+    <div data-testid="search-component" className="search-component">
       <form onSubmit={onSubmit} className="search-form">
         <Input
+          testid="search-input"
           value={value}
           onChange={(text) => onChangeValue(text)}
           placeholder="Nunca dejes de buscar"
         />
 
-        <ButtonIcon onClick={() => onClick()} imageIcon={icons.search} size="18px" />
+        <ButtonIcon testid="search-btn" onClick={() => onClick()} imageIcon={icons.search} size="18px" />
       </form>
     </div>
   );

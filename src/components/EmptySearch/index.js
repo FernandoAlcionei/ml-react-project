@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.scss';
 
 const EmptySearch = () => (
-  <div className="empty-search-component">
+  <div data-testid="empty-search-component" className="empty-search-component">
     <div>
       <span className="message">
         No hay anuncios que coincidan con su búsqueda.

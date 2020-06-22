@@ -7,17 +7,17 @@ import { formatPrice } from '../../lib/utils';
 
 const { icons } = images;
 
-const Card = ({ id, title, price, description, thumbnail, state, freeShipping }) => {
+const Card = ({ product: { id, title, price, condition, picture, state, free_shipping: freeShipping } }) => {
   const productLink = `/items/${id}?title=${title}`;
 
   const renderFreeShipping = () => (freeShipping ? (
-    <img src={icons.shipping} alt="Envío gratis" className="free-shipping" />
+    <img data-testid="free-shipping" src={icons.shipping} alt="Envío gratis" className="free-shipping" />
   ) : null);
 
   return (
-    <div className="card-component">
-      <Link to={productLink}>
-        <img src={thumbnail} alt={title} className="thumbnail" />
+    <div className="card-component" data-testid={id}>
+      <Link data-testid="link-picture" to={productLink}>
+        <img src={picture} alt={title} className="picture" />
       </Link>
 
       <div className="product-info">
@@ -33,14 +33,14 @@ const Card = ({ id, title, price, description, thumbnail, state, freeShipping })
           {state}
         </span>
 
-        <Link to={productLink}>
+        <Link data-testid="link-details" to={productLink}>
           <h2 className="title">
             {title}
           </h2>
 
-          <h3 className="description">
-            {description}
-          </h3>
+          <span className="condition">
+            {condition}
+          </span>
         </Link>
       </div>
     </div>
@@ -48,16 +48,18 @@ const Card = ({ id, title, price, description, thumbnail, state, freeShipping })
 };
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
-  price: PropTypes.shape({
-    currency: PropTypes.string.isRequired,
-    amount: PropTypes.number.isRequired,
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    price: PropTypes.shape({
+      currency: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    condition: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    free_shipping: PropTypes.bool.isRequired,
   }).isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  thumbnail: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired,
-  freeShipping: PropTypes.bool.isRequired,
 };
 
 export default Card;

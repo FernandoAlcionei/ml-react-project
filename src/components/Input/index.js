@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const Input = ({ onChange, value, type, placeholder, required, disabled }) => (
-  <div className="input-component">
+const Input = ({ testid, onChange, value, type, placeholder, required, disabled }) => (
+  <div data-testid="input-component" className="input-component">
     <input
+      data-testid={testid}
       type={type}
       value={value}
       onChange={(e) => onChange(e.target.value)}
@@ -26,6 +27,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
+  testid: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -34,6 +36,7 @@ Input.defaultProps = {
   placeholder: '',
   required: false,
   disabled: false,
+  testid: 'input-field',
 };
 
 export default Input;

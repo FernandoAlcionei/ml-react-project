@@ -54,16 +54,7 @@ class ProductListView extends Component {
 
     if (!loadingView) {
       return products.map((product) => (
-        <Card
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          description={product.condition}
-          thumbnail={product.picture}
-          price={product.price}
-          state={product.state}
-          freeShipping={product.free_shipping}
-        />
+        <Card key={product.id} product={product} />
       ));
     }
 
