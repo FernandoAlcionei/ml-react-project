@@ -3,8 +3,8 @@ import * as types from './actionTypes';
 
 const INITIAL_STATE = {
   loadingView: false,
-  produto: {},
-  descriptions: [],
+  product: {},
+  productDescriptions: [],
 };
 
 const loading = (state = INITIAL_STATE, action) => ({
@@ -12,18 +12,18 @@ const loading = (state = INITIAL_STATE, action) => ({
   loadingView: action.payload.loading,
 });
 
-const adicionaProduto = (state = INITIAL_STATE, action) => ({
+const addProduct = (state = INITIAL_STATE, action) => ({
   ...state,
-  produto: action.payload.produto,
+  product: action.payload.product,
 });
 
-const adicionaDescricaoProduto = (state = INITIAL_STATE, action) => ({
+const addProductDescriptions = (state = INITIAL_STATE, action) => ({
   ...state,
-  descriptions: action.payload.descriptions,
+  productDescriptions: action.payload.descriptions,
 });
 
-export const produtoReducer = createReducer(INITIAL_STATE, {
+export const productDetailsReducer = createReducer(INITIAL_STATE, {
   [types.LOADING]: loading,
-  [types.ADICIONA_PRODUTO]: adicionaProduto,
-  [types.ADICIONA_DESCRICAO_PRODUTO]: adicionaDescricaoProduto,
+  [types.ADD_PRODUCT]: addProduct,
+  [types.ADD_PRODUCT_DESCRIPTIONS]: addProductDescriptions,
 });

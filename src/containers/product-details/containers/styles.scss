@@ -1,68 +1,6 @@
-@import '../../../components/ColorsAji/styles.scss';
-
-.produto-view {
+.product-view {
     display: flex;
     flex-direction: column;
     flex: 1;
     padding: 32px;
-
-    .wrap-info-produto {
-        display: flex;
-        flex-direction: row;
-
-        .wrap-img-produto {
-            width: 680px;
-            height: 680px;
-            border-radius: 4px;
-            overflow: hidden;
-
-            .img-produto {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-
-        .info-produto {
-            flex: 1;
-
-            .quantity-sold {
-                display: block;
-                font-size: 14px;
-                padding-bottom: 16px;
-            }
-
-            .titulo {
-                font-size: 24px;
-                font-weight: bold;
-                padding-bottom: 32px;
-            }
-            
-            .price {
-                display: block;
-                font-size: 46px;
-                padding-bottom: 32px;
-            }
-
-            .btn-comprar {
-                margin-right: 32px;
-            }
-        }
-    }
-
-    .wrap-descricao {
-        width: 680px;
-
-        .label-descricao {
-            display: block;
-            font-size: 28px;
-            padding-bottom: 32px;
-        }
-
-        .descricao {
-            font-size: 16px;
-            color: $grey;
-            white-space: pre-line;
-            text-align: justify;
-        }
-    }
 }

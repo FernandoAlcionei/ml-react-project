@@ -1,15 +1,15 @@
 import * as types from './actionTypes';
 
-export function sagaInfoProduto(id) {
+export function sagaProductDetails(id) {
   return {
-    type: types.SAGA_INFO_PRODUTO,
+    type: types.SAGA_PRODUCT_DETAILS,
     payload: { id },
   };
 }
 
-export function sagaCompraProduto(id) {
+export function sagaBuyProduct(id) {
   return {
-    type: types.SAGA_COMPRA_PRODUTO,
+    type: types.SAGA_BUY_PRODUCT,
     payload: { id },
   };
 }
@@ -21,23 +21,23 @@ export function loading(loadingView) {
   };
 }
 
-export function adicionaProduto(produto) {
+export function addProduct(product) {
   return {
-    type: types.ADICIONA_PRODUTO,
-    payload: { produto },
+    type: types.ADD_PRODUCT,
+    payload: { product },
   };
 }
 
-export function sagaListaDescricaoProduto(id) {
+export function sagaProductDescriptions(id) {
   return {
-    type: types.SAGA_LISTA_DESCRICAO_PRODUTO,
+    type: types.SAGA_PRODUCT_DESCRIPTIONS,
     payload: { id },
   };
 }
 
-export function adicionaDescricaoProduto(descriptions) {
+export function addProductDescriptions(descriptions) {
   return {
-    type: types.ADICIONA_DESCRICAO_PRODUTO,
+    type: types.ADD_PRODUCT_DESCRIPTIONS,
     payload: { descriptions },
   };
 }
