@@ -9,6 +9,7 @@ import HeaderContainer from '../containers/header/containers/HeaderContainer';
 
 const ProdutosContainer = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
 const ProdutoContainer = lazy(() => import('../containers/produto/containers/ProdutoContainer'));
+const NotFoundContainer = lazy(() => import('../containers/not-found/containers/NotFoundContainer'));
 
 const routes = [
   {
@@ -25,7 +26,7 @@ const routes = [
     key: 'not-found',
     path: '*',
     exact: true,
-    component: () => <div>Page 404!</div>,
+    component: NotFoundContainer,
   },
 ];
 
