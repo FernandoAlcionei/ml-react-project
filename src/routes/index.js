@@ -8,7 +8,7 @@ import AlertContainer from '../containers/alert/containers/AlertContainer';
 import HeaderContainer from '../containers/header/containers/HeaderContainer';
 
 const ProductList = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
-const ProductDetails = lazy(() => import('../containers/produto/containers/ProdutoContainer'));
+const ProductDetails = lazy(() => import('../containers/product-details/containers/ProdutoContainer'));
 const NotFoundContainer = lazy(() => import('../containers/not-found/containers/NotFoundContainer'));
 
 const routes = [

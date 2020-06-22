@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 import { productListSagas } from '../containers/produtos/sagas';
-import { productDetailsSagas } from '../containers/produto/sagas';
+import { productDetailsSagas } from '../containers/product-details/sagas';
 
 export default function* rootSaga() {
   yield all([
