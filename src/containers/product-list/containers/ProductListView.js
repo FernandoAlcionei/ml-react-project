@@ -60,7 +60,7 @@ class ProductListView extends Component {
           title={product.title}
           description={product.condition}
           thumbnail={product.picture}
-          price={product.price.amount}
+          price={product.price}
           state={product.state}
           freeShipping={product.free_shipping}
         />

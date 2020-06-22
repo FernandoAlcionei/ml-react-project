@@ -6,3 +6,13 @@ export const getParamUrl = (name, location) => {
 };
 
 export const getClasses = (classes) => classes.join(' ');
+
+export const formatPrice = (value, currency) => {
+  const result = value.toLocaleString('es-AR', {
+    style: 'currency',
+    currency,
+    minimumFractionDigits: 0,
+  });
+
+  return result;
+};

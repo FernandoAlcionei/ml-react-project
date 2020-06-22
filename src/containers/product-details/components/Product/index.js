@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import Button from '../../../../components/Button';
 import './styles.scss';
+import { formatPrice } from '../../../../lib/utils';
 
 class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  getDecimals = (decimals) => (decimals === 0 ? '00' : decimals);
 
   render() {
     const { product, buy } = this.props;
@@ -28,9 +31,14 @@ class Product extends Component {
               { product.title }
             </h2>
 
-            <span className="price">
-              $ { product.price.amount }
-            </span>
+            <div className="price">
+              <span>
+                { formatPrice(product.price.amount, product.price.currency) }
+              </span>
+              <span className="decimals">
+                { this.getDecimals(product.price.decimals) }
+              </span>
+            </div>
 
             <Button className="buy-btn" onClick={() => buy()} label="Comprar" />
           </div>

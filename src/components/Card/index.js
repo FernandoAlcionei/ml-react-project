@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import images from '../../config/images';
 import './styles.scss';
+import { formatPrice } from '../../lib/utils';
 
 const { icons } = images;
 
@@ -34,7 +35,7 @@ class Card extends Component {
         <div className="product-info">
           <Link to={this.getCardLink()} className="price">
             <span>
-              $ {price}
+              { formatPrice(price.amount, price.currency) }
             </span>
 
             { this.renderFreeShipping(freeShipping) }
@@ -61,7 +62,10 @@ class Card extends Component {
 
 Card.propTypes = {
   id: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.shape({
+    currency: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
