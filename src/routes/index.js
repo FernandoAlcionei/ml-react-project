@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './styles.scss';
 import Loader from '../components/Loader';
-import { Colors } from '../components/ColorsAji/index';
 
 import AlertContainer from '../containers/alert/containers/AlertContainer';
 import HeaderContainer from '../containers/header/containers/HeaderContainer';
@@ -35,7 +34,7 @@ export const Routes = () => (
     <div className="routes">
       <AlertContainer />
 
-      <Suspense fallback={<Loader show background={Colors.whiteTransparent} color={Colors.grey} />}>
+      <Suspense fallback={<Loader show />}>
         <Route key="header" component={HeaderContainer} />
 
         <div className="wrap-routes">
