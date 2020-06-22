@@ -11,15 +11,15 @@ class Loader extends Component {
   render() {
     const { show } = this.props;
 
-    if (!show) {
-      return null;
+    if (show) {
+      return (
+        <div className="loader-component">
+          <i className="icon-svg loading" />
+        </div>
+      );
     }
 
-    return (
-      <div className="loader-component">
-        <i className="icon-svg loading" />
-      </div>
-    );
+    return null;
   }
 }
 

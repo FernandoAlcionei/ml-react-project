@@ -52,11 +52,11 @@ class ProductListView extends Component {
         <Card
           key={product.id}
           id={product.id}
-          titulo={product.title}
-          descricao="Completo Unico!"
-          imagem={product.thumbnail}
-          preco={product.price}
-          cidade={product.address.state_name}
+          title={product.title}
+          description="Completo Unico!"
+          thumbnail={product.thumbnail}
+          price={product.price}
+          state={product.address.state_name}
         />
       ));
     }

@@ -1,17 +1,17 @@
 @import "../ColorsAji/styles.scss";
 
-.msg-sem-resultado-component {
+.empty-search-component {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .mensagem {
+    .message {
         font-size: 24px;
     }
 
-    .info-adicional {
+    .tips {
         font-size: 16px;
         color: $medium-grey;
     }

@@ -14,13 +14,11 @@ class Input extends Component {
   }
 
   render() {
-    const { value, id, type, className, placeholder, required, disabled } = this.props;
+    const { value, type, placeholder, required, disabled } = this.props;
 
     return (
       <div className="input-component">
         <input
-          ref={(refs) => { this._input = refs; }}
-          id={id}
           type={type}
           value={value}
           onChange={(event) => this.onChangeValue(event)}
@@ -39,10 +37,8 @@ Input.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
-  id: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
-  className: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -51,9 +47,7 @@ Input.propTypes = {
 Input.defaultProps = {
   type: 'text',
   value: '',
-  className: '',
   placeholder: '',
-  id: '',
   required: false,
   disabled: false,
 };

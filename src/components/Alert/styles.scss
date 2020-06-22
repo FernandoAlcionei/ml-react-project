@@ -11,11 +11,11 @@
     padding: 15px 20px;
     color: $white;
 
-    &.sucesso {
+    &.success {
         background-color: $green;
     }
 
-    &.erro{
+    &.error {
         background-color: $red;
     }
 }

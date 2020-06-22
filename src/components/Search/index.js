@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './styles.scss';
 import { PropTypes } from 'prop-types';
 import Input from '../Input';
-import ButtonIcon from '../ButtonIcon/index';
+import ButtonIcon from '../ButtonIcon';
 import images from '../../config/images';
+import './styles.scss';
 
 const { icons } = images;
 
@@ -31,7 +31,7 @@ class Search extends Component {
             placeholder="Buscar..."
           />
 
-          <ButtonIcon onClick={() => onClick()} icon="icon-search" imgIcon={icons.search} size="18px" />
+          <ButtonIcon onClick={() => onClick()} imageIcon={icons.search} size="18px" />
         </form>
       </div>
     );

@@ -10,26 +10,37 @@ class Card extends Component {
   }
 
   getCardLink() {
-    const { id, titulo } = this.props;
+    const { id, title } = this.props;
 
-    return `/product-details/${id}/?title=${titulo}`;
+    return `/product-details/${id}?title=${title}`;
   }
 
   render() {
-    const { titulo, preco, descricao, imagem, cidade } = this.props;
+    const { title, price, description, thumbnail, state } = this.props;
 
     return (
       <div className="card-component">
         <Link to={this.getCardLink()}>
-          <img src={imagem} alt="Imagem do produto" className="img-card" />
+          <img src={thumbnail} alt={title} className="thumbnail" />
         </Link>
 
-        <div className="info-produto">
-          <span className="price"> $ {preco} </span>
-          <span className="endereco"> { cidade } </span>
+        <div className="product-info">
+          <Link to={this.getCardLink()} className="price">
+            $ {price}
+          </Link>
+
+          <span className="state">
+            {state}
+          </span>
+
           <Link to={this.getCardLink()}>
-            <h3 className="titulo"> {titulo} </h3>
-            <h3 className="titulo"> {descricao} </h3>
+            <h2 className="title">
+              {title}
+            </h2>
+
+            <h3 className="description">
+              {description}
+            </h3>
           </Link>
         </div>
       </div>
@@ -39,11 +50,11 @@ class Card extends Component {
 
 Card.propTypes = {
   id: PropTypes.string.isRequired,
-  preco: PropTypes.number.isRequired,
-  titulo: PropTypes.string.isRequired,
-  descricao: PropTypes.string.isRequired,
-  imagem: PropTypes.string.isRequired,
-  cidade: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {};

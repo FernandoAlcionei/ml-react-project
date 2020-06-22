@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects';
 import * as productListActions from '../actions';
 import * as alertActions from '../../alert/actions';
-import messages from '../../../config/mensagens';
+import notifications from '../../../config/notifications';
 
-const { tipoMsg } = messages;
+const { typeNotification } = notifications;
 
 export function* getProductList(api, { payload }) {
   const { search } = payload;
@@ -17,7 +17,7 @@ export function* getProductList(api, { payload }) {
 
     yield put(productListActions.addProducts(results));
   } else {
-    yield put(alertActions.addAlert(messages.servicoIndisponivel, tipoMsg.erro));
+    yield put(alertActions.addAlert(notifications.unavailableService, typeNotification.error));
   }
 
   yield put(productListActions.loading(false));

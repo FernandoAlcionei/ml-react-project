@@ -8,27 +8,33 @@ class Breadcrumb extends Component {
     this.state = {};
   }
 
-  renderIcon = (listSize, index) => ((index < (listSize - 1)) ? (
-    <i className="icon-svg chevron-right" />
-  ) : null);
+  renderIcon(index) {
+    const { categories } = this.props;
+
+    if (index < (categories.length - 1)) {
+      return <i className="icon-svg chevron-right" />;
+    }
+
+    return null;
+  }
+
+  renderCategory = (category, index) => (
+    <span key={category.id} className="label">
+      { category.name } { this.renderIcon(index) }
+    </span>
+  )
 
   render() {
     const { categories } = this.props;
 
     return (
       <div className="breadcrumb-component">
-        { categories.map((categoria, index) => (
-          <span key={categoria.id} className="label">
-            { categoria.name } { this.renderIcon(categories.length, index)}
-          </span>
-        ))}
+        { categories.map((category, index) => this.renderCategory(category, index))}
       </div>
     );
   }
 }
 
 Breadcrumb.propTypes = { categories: PropTypes.array.isRequired };
-
-Breadcrumb.defaultProps = {};
 
 export default Breadcrumb;

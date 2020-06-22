@@ -9,13 +9,13 @@ class EmptySearch extends Component {
 
   render() {
     return (
-      <div className="msg-sem-resultado-component">
+      <div className="empty-search-component">
         <div>
-          <span className="mensagem">
+          <span className="message">
             Não há anúncios que coincidam com a sua busca.
           </span>
 
-          <ul className="info-adicional">
+          <ul className="tips">
             <li>Revise a ortografia da palavra.</li>
             <li>Utilize palavras mais genéricas ou menos palavras.</li>
           </ul>

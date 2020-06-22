@@ -5,14 +5,14 @@
     flex-direction: row;
     padding: 16px 0;
 
-    .img-card {
+    .thumbnail {
         width: 180px;
         height: 180px;
         border-radius: 4px;
         margin: 0 16px;
     }
 
-    .info-produto {
+    .product-info {
         flex: 1;
         padding-top: 16px;
         color: $dark-grey;
@@ -22,11 +22,11 @@
             margin-bottom: 32px;
         }
 
-        .titulo {
+        .title, .description {
             font-size: 18px;
         }
            
-        .endereco {
+        .state {
             font-size: 12px;
             display: block;
             padding-left: 80%;

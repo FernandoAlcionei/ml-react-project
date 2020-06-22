@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects';
 import * as productDetailsActions from '../actions';
 import * as alertActions from '../../alert/actions';
-import messages from '../../../config/mensagens';
+import notifications from '../../../config/notifications';
 
-const { tipoMsg } = messages;
+const { typeNotification } = notifications;
 
 export function* getProductDetails(api, { payload }) {
   const { id } = payload;
@@ -16,7 +16,7 @@ export function* getProductDetails(api, { payload }) {
     yield put(productDetailsActions.addProduct(response.data));
     yield put(productDetailsActions.sagaProductDescriptions(id));
   } else {
-    yield put(alertActions.addAlert(messages.servicoIndisponivel, tipoMsg.erro));
+    yield put(alertActions.addAlert(notifications.unavailableService, typeNotification.error));
   }
 
   yield put(productDetailsActions.loading(false));
@@ -30,10 +30,10 @@ export function* getProductDescriptions(api, { payload }) {
   if (response && response.ok) {
     yield put(productDetailsActions.addProductDescriptions(response.data));
   } else {
-    yield put(alertActions.addAlert(messages.servicoIndisponivel, tipoMsg.erro));
+    yield put(alertActions.addAlert(notifications.unavailableService, typeNotification.error));
   }
 }
 
 export function* buyProduct() {
-  yield put(alertActions.addAlert(messages.paymentDone, tipoMsg.sucesso));
+  yield put(alertActions.addAlert(notifications.paymentDone, typeNotification.success));
 }
