@@ -7,7 +7,7 @@ import { Colors } from '../components/ColorsAji/index';
 import AlertContainer from '../containers/alert/containers/AlertContainer';
 import HeaderContainer from '../containers/header/containers/HeaderContainer';
 
-const ProductList = lazy(() => import('../containers/produtos/containers/ProdutosContainer'));
+const ProductList = lazy(() => import('../containers/product-list/containers/ProdutosContainer'));
 const ProductDetails = lazy(() => import('../containers/product-details/containers/ProdutoDetailsContainer'));
 const NotFoundContainer = lazy(() => import('../containers/not-found/containers/NotFoundContainer'));
 
