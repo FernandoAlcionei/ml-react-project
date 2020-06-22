@@ -9,7 +9,13 @@ import Breadcrumb from '../../../components/Breadcrumb';
 
 const { logo } = images;
 
-const mockBreadcrumb = ['Electrónica, Audio y Video', 'iPod', 'Reproductores', 'iPod touch', '32 GB'];
+const mockBreadcrumb = [
+  { id: 'b-1', name: 'Electrónica, Audio y Video' },
+  { id: 'b-2', name: 'iPod' },
+  { id: 'b-3', name: 'Reproductores' },
+  { id: 'b-4', name: 'iPod touch' },
+  { id: 'b-5', name: '32 GB' },
+];
 
 class HeaderView extends Component {
   constructor(props) {

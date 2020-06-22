@@ -10,7 +10,7 @@ export function* infoProduto(api, { payload }) {
 
   yield put(produtoActions.loading(true));
 
-  const response = yield call(api.getProduto, id);
+  const response = yield call(api.getProductDetails, id);
 
   if (response && response.ok) {
     yield put(produtoActions.adicionaProduto(response.data));
@@ -25,7 +25,7 @@ export function* infoProduto(api, { payload }) {
 export function* listaDescricaoProduto(api, { payload }) {
   const { id } = payload;
 
-  const response = yield call(api.getDescricaoProduto, id);
+  const response = yield call(api.getProductDescriptions, id);
 
   if (response && response.ok) {
     yield put(produtoActions.adicionaDescricaoProduto(response.data));

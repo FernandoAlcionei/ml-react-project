@@ -1,33 +1,31 @@
 import apisauce from 'apisauce';
 import ApiConstants from './ApiConstants';
 
-const { LOGIN } = ApiConstants;
+const { uri, items, descriptions, search } = ApiConstants;
 
-const apiurl = 'https://api.mercadolibre.com';
-
-const create = (baseURL = apiurl) => {
+const create = (baseURL = uri) => {
   const api = apisauce.create({
     baseURL,
     headers: { 'Content-Type': 'application/json' },
     timeout: 20000,
   });
 
-  const getProdutos = (busca) => (
-    api.get('/sites/MLA/search', { q: busca || 'query' })
+  const getProductsList = (text) => (
+    api.get(search, { q: text || 'query' })
   );
 
-  const getProduto = (id) => (
-    api.get(`/items/${id}`)
+  const getProductDetails = (id) => (
+    api.get(`${items}/${id}`)
   );
 
-  const getDescricaoProduto = (id) => (
-    api.get(`/items/${id}/descriptions`)
+  const getProductDescriptions = (id) => (
+    api.get(`${items}/${id}${descriptions}`)
   );
 
   return {
-    getProdutos,
-    getProduto,
-    getDescricaoProduto,
+    getProductsList,
+    getProductDetails,
+    getProductDescriptions,
   };
 };
 

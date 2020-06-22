@@ -19,8 +19,8 @@ class Breadcrumb extends Component {
     return (
       <div className="breadcrumb-component">
         { lista.map((categoria, index) => (
-          <span className="label">
-            { categoria } { this.renderIcon(lista.length, index)}
+          <span key={categoria.id} className="label">
+            { categoria.name } { this.renderIcon(lista.length, index)}
           </span>
         ))}
       </div>

@@ -1,15 +1,5 @@
 @import "../ColorsAji/styles.scss";
 
-@mixin btn-style($background, $color) {
-    background-color: $blue;
-    color: $white;
-    transition: 0.3s;
-
-    &:hover {
-        background-color: $dark-blue;
-    }
-}
-
 .btn {
     text-transform: capitalize;
     width: 220px;
@@ -22,18 +12,12 @@
     align-items: center;
     cursor: pointer;
     font-size: 16px;
-
-    &:disabled {
-        opacity: 0.5!important;
-        cursor: default;
-    }
+    background-color: $blue;
+    color: $white;
+    transition: 0.3s;
 
     &:hover {
-        opacity: 0.9;
-    }
-
-    &:active {
-        opacity: 1;
+        background-color: $dark-blue;
     }
 
     .icon-svg {

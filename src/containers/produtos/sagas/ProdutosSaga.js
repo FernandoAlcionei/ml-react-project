@@ -10,7 +10,7 @@ export function* listaProdutos(api, { payload }) {
 
   yield put(produtosActions.loading(true));
 
-  const response = yield call(api.getProdutos, busca);
+  const response = yield call(api.getProductsList, busca);
 
   if (response && response.ok) {
     const { results } = response.data;

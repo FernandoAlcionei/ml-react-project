@@ -1,5 +1,5 @@
 @import './components/ColorsAji/styles.scss';
-@import './components/IconsAji/styles';
+@import './components/IconsSvg/styles';
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -17,4 +17,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 ul {
   padding-left: 20px;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: initial;
 }
