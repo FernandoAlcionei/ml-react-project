@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import configureStore from './store';
+import './lib/i18n/index';
 
 import './App.scss';
 import { Routes } from './routes';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 import Search from '../../../components/Search';
 import Breadcrumb from '../../../components/Breadcrumb';
 import images from '../../../config/images';
@@ -40,13 +41,14 @@ class HeaderView extends Component {
 
   render() {
     const { search } = this.state;
+    const { t } = this.props;
 
     return (
       <div className="header-view">
         <div className="header">
           <div className="content">
             <Link to="/">
-              <img src={logo} className="logo" alt="Mercado Libre" />
+              <img src={logo} className="logo" alt={t('Mercado Libre')} />
             </Link>
 
             <Search
@@ -68,6 +70,7 @@ class HeaderView extends Component {
 HeaderView.propTypes = {
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
-export default HeaderView;
+export default withTranslation()(HeaderView);

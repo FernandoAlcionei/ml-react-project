@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import { getClasses } from '../../lib/utils';
 import './styles.scss';
 
-const ButtonIcon = ({ onClick, imageIcon, icon, color, size, testid }) => {
+const ButtonIcon = ({ onClick, imageIcon, icon, color, size, testid, t }) => {
   const getIconStyle = () => ({ width: size, height: size, backgroundColor: color });
 
   const renderIcon = () => {
@@ -13,7 +14,7 @@ const ButtonIcon = ({ onClick, imageIcon, icon, color, size, testid }) => {
           data-testid="image-icon"
           src={imageIcon}
           className="img-icon"
-          alt="Cargando..."
+          alt={t('cargando')}
           style={getIconStyle()}
         />
       );
@@ -43,6 +44,7 @@ ButtonIcon.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string.isRequired,
   testid: PropTypes.string,
+  t: PropTypes.func.isRequired,
 };
 
 ButtonIcon.defaultProps = {
@@ -52,4 +54,4 @@ ButtonIcon.defaultProps = {
   testid: 'button-icon-component',
 };
 
-export default ButtonIcon;
+export default withTranslation()(ButtonIcon);

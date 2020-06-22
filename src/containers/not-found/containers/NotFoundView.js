@@ -1,16 +1,20 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
+import { withTranslation } from 'react-i18next';
 import './styles.scss';
 
-const NotFoundView = () => (
+const NotFoundView = ({ t }) => (
   <div data-testid="not-found-view" className="not-found-view">
     <span className="status">
       404
     </span>
 
     <span className="message">
-      Página no encontrada.
+      { t('Página no encontrada') }
     </span>
   </div>
 );
 
-export default NotFoundView;
+NotFoundView.propTypes = { t: PropTypes.func.isRequired };
+
+export default withTranslation()(NotFoundView);
