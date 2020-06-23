@@ -10,8 +10,8 @@ const create = (baseURL = uri) => {
     timeout: 20000,
   });
 
-  const getProductList = (search) => (
-    api.get(items, { search })
+  const getProductList = (q) => (
+    api.get(items, { q })
   );
 
   const getProductDetails = (id) => (
