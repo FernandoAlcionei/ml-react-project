@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import './styles.scss';
 import Loader from '../../../components/Loader';
-import { getParamUrl } from '../../../lib/utils';
 import Product from '../components/Product';
 
 class ProductDetailsView extends Component {
@@ -14,11 +13,9 @@ class ProductDetailsView extends Component {
 
   componentDidMount() {
     const { getProductDetails, t } = this.props;
-    const { location, match: { params: { id } } } = this.props;
+    const { match: { params: { id } } } = this.props;
 
     window.scrollTo(0, 0);
-
-    document.title = getParamUrl('title', location);
 
     getProductDetails(id, t);
   }
@@ -38,6 +35,8 @@ class ProductDetailsView extends Component {
     const { loadingView, product } = this.props;
 
     if (!loadingView && product.id) {
+      document.title = product.title;
+
       return (
         <Product buy={() => this.buy()} product={product} />
       );
@@ -65,7 +64,6 @@ ProductDetailsView.propTypes = {
   getProductDetails: PropTypes.func.isRequired,
   buyProduct: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
   loadingView: PropTypes.bool.isRequired,
   match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }).isRequired }).isRequired,
 };

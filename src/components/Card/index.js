@@ -8,7 +8,7 @@ import { formatPrice } from '../../lib/utils';
 const { icons } = images;
 
 const Card = ({ product: { id, title, price, condition, picture, state, free_shipping: freeShipping } }) => {
-  const productLink = `/items/${id}?title=${title}`;
+  const productLink = `/items/${id}`;
 
   const renderFreeShipping = () => (freeShipping ? (
     <img data-testid="free-shipping" src={icons.shipping} alt="Envío gratis" className="free-shipping" />

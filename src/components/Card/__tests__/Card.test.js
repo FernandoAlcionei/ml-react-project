@@ -30,7 +30,7 @@ describe('Card component', () => {
   });
 
   it('should create details url correctly', () => {
-    const linkExpected = `http://localhost/items/${mockProduct.id}?title=${encodeURI(mockProduct.title)}`;
+    const linkExpected = `http://localhost/items/${mockProduct.id}`;
 
     const { getByTestId } = buildComponent(cardProps);
 
